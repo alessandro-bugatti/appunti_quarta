@@ -1,4 +1,4 @@
-# Appunti delle lezioni delle classe quarta Informatica  
+# Appunti delle lezioni della classe quarta Informatica  
 
 Questo repository viene da me utilizzato per salvare in realtime, cioè durante una lezione, tutti i materiali che vengono prodotti. Per sua natura questi materiali non è detto che siano del tutto corretti/completi, in quanto prodotti attraverso l'interazione con gli studenti e con lo scopo di essere rivisti/corretti/completati tramite un lavoro di revisione casalingo. Le varie sottocartelle sono relative ai vari argomenti trattati, nella cartella archivio si trovano gli esercizi fatti negli anni passati.
 
