@@ -18,8 +18,8 @@ public class Vettori_esempio {
         Vettore v1, v2;
         v1 = new Vettore();
         v2 = new Vettore();
-        System.out.println("Hello Alessandro!");
-        
+        v1.stampa();
+        v2.stampa();
     }
     
 }
