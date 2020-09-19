@@ -14,22 +14,55 @@ package vettori_esempio;
 //Il nome delle classi in Java per convenzione è maiuscolo
 public class Vettore {
     //attributi
-    private final int dimensione = 3;
+    private int dimensione;
     private int v[]; 
     
     //Metodo costruttore
     public Vettore()
     {
+        dimensione = 100;
         //Crea un vettore nello heap
         v =  new int[dimensione];
         for (int i = 0; i < dimensione; i++)
-            v[i] = 42;
-        //io ho visto questo articolo su Internet
+            v[i] = (int)(Math.random()*1000000) + 1;
+    }
+    
+    public Vettore(int dim)
+    {
+        dimensione = dim;
+        //Crea un vettore nello heap
+        v =  new int[dimensione];
+        for (int i = 0; i < dimensione; i++)
+            v[i] = (int)(Math.random()*1000000) + 1;
+    }
+    
+    public int somma()
+    {
+        int temp = 0;
+        for (int i = 0; i < dimensione;i++)
+            temp += v[i];
+        return temp;
+    }
+    
+    //Da completare come esercizio
+    public int get(int pos)
+    {
+        return 42;
+    }
+    
+    public boolean set(int n, int pos)
+    {
+        if (pos < 0 || pos >= dimensione)
+            return false;
+        v[pos] = n;
+        return true;
     }
     
     public void stampa()
     {
-        for (int i = 0; i < dimensione; i++)
-            System.out.println(v[i]);
+        System.out.print(v[0]);
+        for (int i = 1; i < dimensione; i++)
+            System.out.print(" - " + v[i]);
+        System.out.println("");
     }
 }
