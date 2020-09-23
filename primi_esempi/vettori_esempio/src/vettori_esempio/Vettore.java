@@ -44,10 +44,11 @@ public class Vettore {
         return temp;
     }
     
-    //Da completare come esercizio
     public int get(int pos)
     {
-        return 42;
+        if (pos < 0 || pos >= dimensione)
+            return -1;
+        return v[pos];
     }
     
     public boolean set(int n, int pos)
@@ -56,6 +57,19 @@ public class Vettore {
             return false;
         v[pos] = n;
         return true;
+    }
+    
+    public int ricerca_esaustiva(int cercato)
+    {
+        for (int i = 0; i < this.dimensione; i++)
+            if (v[i] == cercato)
+                return i;
+        return -1;
+    }
+    
+    public void selection_sort()
+    {
+        
     }
     
     public void stampa()
