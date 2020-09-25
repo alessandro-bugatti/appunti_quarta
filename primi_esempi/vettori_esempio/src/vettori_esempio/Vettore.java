@@ -20,7 +20,7 @@ public class Vettore {
     //Metodo costruttore
     public Vettore()
     {
-        dimensione = 100;
+        dimensione = 100000;
         //Crea un vettore nello heap
         v =  new int[dimensione];
         for (int i = 0; i < dimensione; i++)
@@ -59,7 +59,7 @@ public class Vettore {
         return true;
     }
     
-    public int ricerca_esaustiva(int cercato)
+    public int ricercaEsaustiva(int cercato)
     {
         for (int i = 0; i < this.dimensione; i++)
             if (v[i] == cercato)
@@ -67,7 +67,23 @@ public class Vettore {
         return -1;
     }
     
-    public void selection_sort()
+    public void selectionSort()
+    {
+        for (int i = 0; i < this.dimensione - 1; i++)
+        {
+            int pos_scambio = i;
+            for (int j = i+1; j < this.dimensione; j++)
+            {
+                if (v[j] < v[pos_scambio])
+                    pos_scambio = j;   
+            }
+            int minore = v[pos_scambio];
+            v[pos_scambio] = v[i];
+            v[i] = minore;   
+        }
+    }
+    
+    public void bubbleSort()
     {
         
     }

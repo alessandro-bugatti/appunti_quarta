@@ -5,6 +5,8 @@
  */
 package vettori_esempio;
 
+import java.util.Random;
+
 /**
  *
  * @author alex_2
@@ -20,12 +22,14 @@ public class Vettori_esempio {
         v2 = new Vettore(5);
         int  s = v1.somma();
         //v1.v[3] = 7; NO
-        if (v1.set(-16000000, 150) == false)
+        if (v1.set(3, 150) == false)
             System.out.println("Assegnamento non riuscito");;
         v1.stampa();
         System.out.println("Somma v1 = " + v1.somma());
         v2.stampa();
         System.out.println("Somma v2 = " + v2.somma());
+        v1.selectionSort();
+        //v1.stampa();
     }
     
 }
