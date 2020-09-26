@@ -20,11 +20,11 @@ public class Vettore {
     //Metodo costruttore
     public Vettore()
     {
-        dimensione = 100000;
+        dimensione = 10;
         //Crea un vettore nello heap
         v =  new int[dimensione];
         for (int i = 0; i < dimensione; i++)
-            v[i] = (int)(Math.random()*1000000) + 1;
+            v[i] = (int)(Math.random()*100) + 1;
     }
     
     public Vettore(int dim)
@@ -86,6 +86,11 @@ public class Vettore {
     public void bubbleSort()
     {
         
+    }
+    
+    public double media()
+    {
+        return (double)this.somma()/dimensione;
     }
     
     public void stampa()

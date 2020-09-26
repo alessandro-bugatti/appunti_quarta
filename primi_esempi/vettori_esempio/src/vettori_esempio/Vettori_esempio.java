@@ -19,17 +19,19 @@ public class Vettori_esempio {
     public static void main(String[] args) {
         Vettore v1, v2;
         v1 = new Vettore();
-        v2 = new Vettore(5);
+        v2 = new Vettore(10);
         int  s = v1.somma();
         //v1.v[3] = 7; NO
-        if (v1.set(3, 150) == false)
+        
+        if (v1.set(3, -1) == false)
             System.out.println("Assegnamento non riuscito");;
         v1.stampa();
         System.out.println("Somma v1 = " + v1.somma());
         v2.stampa();
         System.out.println("Somma v2 = " + v2.somma());
         v1.selectionSort();
-        //v1.stampa();
+        v1.stampa();
+        System.out.println(v1.media());
     }
     
 }
