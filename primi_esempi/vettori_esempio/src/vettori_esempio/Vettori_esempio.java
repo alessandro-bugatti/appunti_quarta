@@ -23,15 +23,16 @@ public class Vettori_esempio {
         int  s = v1.somma();
         //v1.v[3] = 7; NO
         
-        if (v1.set(3, -1) == false)
-            System.out.println("Assegnamento non riuscito");;
-        v1.stampa();
-        System.out.println("Somma v1 = " + v1.somma());
-        v2.stampa();
-        System.out.println("Somma v2 = " + v2.somma());
-        v1.selectionSort();
-        v1.stampa();
-        System.out.println(v1.media());
+        //if (v1.set(3, -1) == false)
+        //    System.out.println("Assegnamento non riuscito");;
+        //v1.stampa();
+        //System.out.println("Somma v1 = " + v1.somma());
+        //v2.stampa();
+        //System.out.println("Somma v2 = " + v2.somma());
+        v1.insertionSort();
+        System.out.println("Ordinato");
+        //v1.stampa();
+        //System.out.println(v1.media());
     }
     
 }

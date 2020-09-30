@@ -3,52 +3,61 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package vettori_esempio;
 
-/**
- *
- * @author Alessandro Bugatti
- */
 
-//Il nome delle classi in Java per convenzione è maiuscolo
-public class Vettore {
+//il nome delle classi in Java per convenzione è maiuscolo
+public class Vettore 
+{
     //attributi
     private int dimensione;
-    private int v[]; 
+    private int v[];
     
-    //Metodo costruttore
+    //metodi
+    
     public Vettore()
     {
-        dimensione = 10;
-        //Crea un vettore nello heap
-        v =  new int[dimensione];
-        for (int i = 0; i < dimensione; i++)
-            v[i] = (int)(Math.random()*100) + 1;
+        
+        dimensione = 200000;
+        v = new int[dimensione];
+        int max = 50;
+        for (int i = 0; i < dimensione; i ++)
+        {
+            v[ i ] = (int)(Math.random() * max); 
+        }
+        v[0] =  100;
     }
     
     public Vettore(int dim)
     {
         dimensione = dim;
-        //Crea un vettore nello heap
-        v =  new int[dimensione];
-        for (int i = 0; i < dimensione; i++)
-            v[i] = (int)(Math.random()*1000000) + 1;
+        v = new int[dimensione];
+        int max = 100;
+        for (int i = 0; i < dimensione; i ++)
+            v[ i ] = (int)(Math.random() * max); 
+        
     }
+
     
     public int somma()
     {
         int temp = 0;
-        for (int i = 0; i < dimensione;i++)
+        for(int i = 0; i < dimensione; i ++)
             temp += v[i];
         return temp;
     }
     
     public int get(int pos)
     {
-        if (pos < 0 || pos >= dimensione)
-            return -1;
-        return v[pos];
+        int posizione = 4;
+        for (int i = 0; i < dimensione; i ++)
+        {
+            if(i==posizione){
+             pos = v[i];
+            }
+        }
+        
+        return pos;
     }
     
     public boolean set(int n, int pos)
@@ -59,7 +68,7 @@ public class Vettore {
         return true;
     }
     
-    public int ricercaEsaustiva(int cercato)
+    public int ricerca_esaustiva(int cercato)
     {
         for (int i = 0; i < this.dimensione; i++)
             if (v[i] == cercato)
@@ -67,37 +76,125 @@ public class Vettore {
         return -1;
     }
     
+    
     public void selectionSort()
     {
-        for (int i = 0; i < this.dimensione - 1; i++)
-        {
-            int pos_scambio = i;
-            for (int j = i+1; j < this.dimensione; j++)
+        selectionSort(0, dimensione);
+    }
+    //fatto con gregorelli
+    public void selectionSort(int a, int b)
+    {
+        if (a<b && a<dimensione && b>0) {
+            if (a<0) a=0;
+            if (b>dimensione && a<dimensione-1) b = dimensione;
+            
+            int posMin /*posizione numero più piccolo*/, temp;
+            for (int i=a; i<b-1; i++)
             {
-                if (v[j] < v[pos_scambio])
-                    pos_scambio = j;   
+                posMin = i;
+                for (int j=i+1; j<b; j++)
+                {
+                    if (v[j] < v[posMin]) {
+                        posMin = j;
+                    }
+                }
+                temp = v[posMin];
+                v[posMin] = v[i];
+                v[i] = temp;
             }
-            int minore = v[pos_scambio];
-            v[pos_scambio] = v[i];
-            v[i] = minore;   
+            
         }
     }
     
-    public void bubbleSort()
+    public void BubbleSort()
     {
+        // con l'aiuto di gregorelli 
+        int minore = 0;
+        int ordine = 0;
+        int scambi = 0;
+        while(ordine != dimensione)
+        {
+            scambi = 0;
+            for(int i = dimensione -1; i > 0; i--)
+            {
+                
+                if(v[i] < v[i-1])
+                {
+                    minore= v[i-1];
+                    v[i-1] = v[i];
+                    v[i] = minore ; 
+                    scambi ++;
+               
+                } 
+            }
+            if (scambi == 0)
+                break;
+            ordine ++;
+        }
         
     }
     
-    public double media()
+    
+    public void insertionSort()
     {
-        return (double)this.somma()/dimensione;
+        int minore = 0;
+        for (int i = 0; i < dimensione -1 ; i++)
+        {
+            for(int j = i+1; j > 0 ; j--)
+            {
+               if(v[j] < v[j-1])
+               {
+                   minore = v[j-1];
+                   v[j-1] = v[j];
+                   v[j] = minore;
+               }
+            }
+        }
     }
+    
+    //fatto con  il mistico aiuto di Gregorelli Michele
+    public void insertionSortAdvance()
+    {
+        int temp, n/*numero attuale da ordinare*/=0, posMin=0;
+        //controllare validitÃ  numeri
+        //bubble
+        for (int i=1; i<dimensione; i++)
+        {
+            if (v[i]<v[posMin]) {
+                posMin = i;
+            }
+        }
+        temp = v[0];
+        v[0] = v[posMin];
+        v[posMin] = temp;
+        for (int i=2; i<dimensione; i++)
+        {
+            
+            if (v[i]>=v[i-1]) {
+                continue;
+            }
+            n = v[i];
+            for (int j=i-1; j>0; j--)
+            {
+                v[j+1] = v[j];
+                if (n<=v[j] && n>=v[j-1]) {
+                    v[j] = n;
+                    break;
+                }
+            }
+        }
+    }
+
+    
     
     public void stampa()
     {
-        System.out.print(v[0]);
-        for (int i = 1; i < dimensione; i++)
-            System.out.print(" - " + v[i]);
+        System.out.print(v[0]); 
+        for (int i = 1; i < dimensione; i ++)
+            System.out.print(" - " + v[i]); 
         System.out.println("");
     }
+
 }
+
+    
