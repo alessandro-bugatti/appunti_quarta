@@ -185,7 +185,31 @@ public class Vettore
         }
     }
 
+    public int minimo()
+    {
+        int min = v[0];
+        for (int i = 0; i < dimensione; i++)
+            if (v[i] < min)
+                min = v[i];
+        return min;
+    }
     
+    //minimo(v[a,b]) = 
+    // se (v[a] < minimo(v[a+1,b])
+    //  il minimo è v[a]
+    // altrimenti
+    //  il minimo è minimo(v[a+1,b])
+    // v = {2, 4, 5, 1, 7}
+    // minimo (v[0,4]) = ?
+    // v[0] = 2
+    // minimo (v[1,4]) v[1,4] = {4, 5, 1, 7}
+    //caso base v[b,b] = v[b]
+    public int minimoR(int inizio, int fine)
+    {
+        if (inizio == fine)
+            return v[inizio];
+        return 42;
+    }
     
     public void stampa()
     {
