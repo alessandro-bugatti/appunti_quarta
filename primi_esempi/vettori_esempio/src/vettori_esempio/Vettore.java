@@ -211,6 +211,20 @@ public class Vettore
         return 42;
     }
     
+    private int partition(int inizio, int fine)
+    {
+        
+    }
+    
+    public void quickSortR(int inizio, int fine)
+    {
+        if (inizio >= fine)
+            return;
+        int i = partition(inizio, fine);
+        quickSortR(inizio, i - 1);
+        quickSortR(i + 1, fine);
+    }
+    
     public void stampa()
     {
         System.out.print(v[0]); 
