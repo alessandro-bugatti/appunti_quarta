@@ -5,8 +5,6 @@
  */
 package vettori_esempio;
 
-import java.util.Random;
-
 /**
  *
  * @author alex_2
@@ -29,7 +27,7 @@ public class Vettori_esempio {
         //System.out.println("Somma v1 = " + v1.somma());
         //v2.stampa();
         //System.out.println("Somma v2 = " + v2.somma());
-        v1.insertionSort();
+        v1.selectionSort();
         System.out.println("Ordinato");
         //v1.stampa();
         //System.out.println(v1.media());
