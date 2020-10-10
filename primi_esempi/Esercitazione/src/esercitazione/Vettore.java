@@ -113,7 +113,7 @@ public class Vettore
     
     public void mergeSort()
     {
-        quickSortR(0,dimensione);
+        mergeSortR(0,dimensione);
     }
 
     //Restituisce il valore minino del vettore
