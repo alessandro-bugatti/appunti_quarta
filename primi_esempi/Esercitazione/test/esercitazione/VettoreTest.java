@@ -63,7 +63,7 @@ public class VettoreTest {
     public void testGet() {
         System.out.println("get");
         int pos = 3;
-        int expResult = 2;
+        int expResult = 8;
         int result = instance.get(pos);
         assertEquals(expResult, result);
     }
@@ -117,8 +117,8 @@ public class VettoreTest {
     public void testRicerca_esaustiva() {
         System.out.println("ricerca_esaustiva");
         int cercato = 8;
-        int expResult = 0;
-        int result = instance.ricerca_esaustiva(cercato);
+        int expResult = 3;
+        int result = instance.ricercaEsaustiva(cercato);
         assertEquals(expResult, result);
         }
 
@@ -130,7 +130,7 @@ public class VettoreTest {
         System.out.println("ricerca_esaustiva failed");
         int cercato = 17;
         int expResult = -1;
-        int result = instance.ricerca_esaustiva(cercato);
+        int result = instance.ricercaEsaustiva(cercato);
         assertEquals(expResult, result);
         }
 
