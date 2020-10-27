@@ -36,10 +36,28 @@ public class Ricorsione {
         return a + prodotto(a, b-1);
     }
     
+    public static int sommatoriaR(int n)
+    {
+        if (n == 0)
+            return 0;
+        //s(n) = n + ((n-1) + (n-2)+...+2+1)
+        //s(n) = n + s(n-1)
+        return n + sommatoriaR(n-1);
+    }
+    
+    public static int contaCifreR(int n)
+    {
+        if (n == 0)
+            return 0;
+        return 1 + contaCifreR(n/10);
+    }
     
     public static void main(String[] args) {
         System.out.println(fattoriale(5));
         System.out.println(prodotto(3,4));
+        System.out.println(sommatoriaR(5));
+        System.out.println(contaCifreR(55366));
+        
     }
     
 }

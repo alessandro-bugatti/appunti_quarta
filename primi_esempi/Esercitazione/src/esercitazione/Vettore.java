@@ -254,6 +254,23 @@ public class Vettore
         mergeSortR(0, dimensione - 1);
     }
 
+    private int ricercaRicorsivaR(int a, int b, int cercato)
+    {
+        if (b < a)
+            return -1;
+        int m = (a + b)/2;
+        if (cercato == v[m])
+            return m;
+        else if 
+            return ricercaRicorsivaR(a, b, cercato)
+        else
+            
+    }    
+    public int ricercaBinaria(int cercato)
+    {
+        return ricercaRicorsivaR(0, dimensione - 1, cercato);
+    }
+    
     //Restituisce il valore minino del vettore
     public int minimo()
     {
@@ -263,6 +280,8 @@ public class Vettore
                 minimo = v[i];
         return minimo;
     }
+    
+    
     
     //Questa la tenete così com'è
     @Override
