@@ -23,13 +23,11 @@ public class EsercizioTelevisore {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int a;
-        a = scan.nextInt();
-        System.out.println(a);
-        String b = scan.next();
-        System.out.println(b);
-        menu();
+        Televisore t1 = new Televisore(1000);
+        Televisore t2 = new Televisore(500);
+        t1.canaleSuccessivo();
+        Televisore.modificaMassimoVolume(150);
+        double a = Math.sqrt(15);
     }
     
 }

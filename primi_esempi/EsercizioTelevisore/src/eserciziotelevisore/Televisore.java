@@ -6,111 +6,178 @@
 package eserciziotelevisore;
 
 /**
- * Esermpio di una classe per gestire un televisore
- * @author Federico Brignani
+ * Esempio di una classe per gestire un televisore
+ * @author Danish Hussain
  */
 public class Televisore {
-    private int numeroCanali; // Attributo che contiene il numero massimo dei canali del televisore
-    private int canaleAttuale; // Attributo che contiene il numero del canale attuale
-    private boolean acceso; // Attributo che indica se il computer è acceso
+    /**
+     * Attributo che contiene il numero del canale attuale
+     */
+    private int canaleAttuale;
+    /**
+     * Stato della televisione: spento / acceso
+     */
+    private boolean acceso;
+    /**
+     * Numero totale di canali presenti sulla televisione
+     */
+    private int totaleCanali;
+    /**
+     * Numero che indica il volume della televisione
+     */
+    private int volume;
+    /**
+     * numero che indica la luminosità della televisioen
+     */
+    private int luminosita;
+    /**
+     * 
+     */
+    private static int MAX_VOLUME = 100;
     
     /**
-     * Metodo costruttore
-     * @param numeroCanali Numero massimo di canali del televisore
+     * Questo è il costruttore con i dati del televisore in cui
+     * vengono assegnati i valori iniziali
+     * @param dimensione 
      */
-    public Televisore(int numeroCanali)
-    {
-        this.numeroCanali = numeroCanali;
+    public Televisore(int dimensione)
+    { 
+        this.canaleAttuale = 1;
         this.acceso = false;
+        this.totaleCanali = dimensione;
+        this.volume = 10;
+        this.luminosita = 50;
+        
     }
+    
     
     /**
      * Seleziona un canale tra quelli validi
-     * @param canale Canale sul quale si sposterà il televisore<br>
-     * Se il canale passato <strong>non è valido</strong> il televisore
-     * rimarrà sul canale impostato in precedenza
-     * @return Il canale su cui si troverà il televisore dopo che
-     * è stato chiamato il metodo
+     * @param canaleSelezionato  sul quale si sposterà il televisore se il canale 
+     * inserito <strong>non è valido</strong> il televisore rimarrà sullo stesso canale
+     * impostato in precedenza
+     * @return il canale finale su cui troverà la tlevisione,
+     * in questo caso quello selezionato dall'utente
      */
-    public int selezionaCanale(int canale)
+    public int selezionaCanale(int canaleSelezionato)
     {
-        if (acceso && canale >= 1 && canale <= this.numeroCanali )
-            canaleAttuale = canale;
+        if(canaleSelezionato > 0 && canaleSelezionato < 1001 && acceso)
+            canaleAttuale = canaleSelezionato;
+        else
+            System.out.println("Canale selezionato inesistente!");
         return canaleAttuale;
     }
     
     /**
-     * Cambia il canale del televisore in quello successivo<br>
-     * Se il canale successivo si trova al di fuori del limite
-     * <strong>numeroCanali</strong> il televisore si sposterà
-     * sul canale 1
-     * @return Il canale su cui si troverà il televisore dopo che
-     * è stato chiamato il metodo
+     * Permette di spostarsi al canale successivo
+     * @return il canale finale su cui troverà la tlevisione,
+     * in questo caso quello successivo all'attuale
      */
     public int canaleSuccessivo()
     {
-        if (acceso)
-            if (canaleAttuale < this.numeroCanali)
-                canaleAttuale++;
-            else
-                canaleAttuale = 1;
-        return canaleAttuale;   
-    }
-    
-    /**
-     * Cambia il canale del televisore in quello precedente<br>
-     * Se il canale precedente si trova al di fuori del limite
-     * <strong>numeroCanali</strong> il televisore si sposterà
-     * sull'ultimo canale valido
-     * @return Il canale su cui si troverà il televisore dopo che
-     * è stato chiamato il metodo
-     */
-    public int canalePrecedente()
-    {
-        if (acceso)
-            if (canaleAttuale > 1)
-                canaleAttuale--;
-            else
-                canaleAttuale = this.numeroCanali;
+        if(acceso == true)
+            canaleAttuale++;
         return canaleAttuale;
     }
     
     /**
-     * Accende il televisore<br>
-     * Quando il televisore è spento non può cambiare canale
+     * Permette di spostarsi al canale successivo
+     * @return il canale finale su cui troverà la tlevisione,
+     * in questo caso quello preceedente all'attuale
      */
-    public void accendi()
+    public int canalePrecedente()
     {
-        this.canaleAttuale = 1;
-        this.acceso = true;
+        if(acceso == true)
+            canaleAttuale--;
+        return canaleAttuale;
     }
     
     /**
-     * Spegne il televisore<br>
-     * Quando il televisore è spento non può cambiare canale
+     * Questo metodo permette di accendere il televisore
+     */
+    public void accendi()
+    {
+        acceso = true;
+    }
+    
+    /**
+     * Questo metodo permette di spegnere il televisore
      */
     public void spegni()
     {
         acceso = false;
     }
+    /**
+     * Permette di diminuire il volume di una'unità
+     * @return il volume finale su cui si troverà la tlevisione,
+     * in questo caso decrementato di uno rispetto a prima
+     */
+    public int diminuisciVolume()
+    {
+        if (volume - 1>= 0)
+            volume--;
+        return volume;
+    }
+    /**
+     * Permette di aumentare il volume di una'unità
+     * @return il volume finale su cui si troverà la tlevisione,
+     * in questo caso incrementato di uno rispetto a prima
+     */
+    public int aumentaVolume()
+    {
+        if (volume + 1<= MAX_VOLUME)
+            volume++;
+        return volume;
+    }
+    /**
+     * Permette di aumentare la luminosità di una'unità
+     * @return la luminostà finale su cui si troverà la tlevisione,
+     * in questo caso decrementata di uno rispetto a prima
+     */
+    public int diminuisciLuminosita()
+    {
+        if (luminosita - 1>= 0)
+            luminosita--;
+        return luminosita;
+    }
+    /**
+     * Permette di aumentare la luminosità di una'unità
+     * @return la luminostà finale su cui si troverà la tlevisione,
+     * in questo caso incrementata di uno rispetto a prima
+     */
+    public int aumentaluminosita()
+    {
+        if (luminosita + 1<= 100)
+            luminosita++;
+        return luminosita;
+    }
     
     /**
-     * Controlla lo stato del televisore
-     * @return Lo stato del televisore e nel caso fosse acceso
-     * il canale su cui si trova
+     * Metodo che permette di stampare lo stato attuale
+     * del televisore
+     * @return stringa contenente tutte le varie informazione
      */
     @Override
     public String toString()
     {
         String s;
         s = "Il televisore è ";
-        if (acceso)
-        {
-            s = s + "acceso";
-            s = s + "\nIl canale attivo è " + this.canaleAttuale;
-        }
+        if (acceso == true)
+            s = s + "acceso. ";
         else
-            s = s + "spento";
+        s = s + "spento. ";
+        
+        if(acceso == true)
+        {
+            s = s + "Il canale attivo é " + this.canaleAttuale + ".\n"
+                  + "Il volume della televisione è di " + volume + ". "
+                  + "La luminosità è di " + luminosita + ".";
+        }
         return s;
+    }
+    
+    public static void modificaMassimoVolume(int m)
+    {
+        MAX_VOLUME++;
     }
 }
