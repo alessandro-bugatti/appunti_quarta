@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @author alex_2
  */
 public class RazionaleTest {
-    
+
     public RazionaleTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -56,13 +56,12 @@ public class RazionaleTest {
     @Test
     public void testSottrazione() {
         System.out.println("sottrazione");
-        Razionale r = null;
-        Razionale instance = new Razionale();
-        Razionale expResult = null;
-        Razionale result = instance.sottrazione(r);
+        Razionale a = new Razionale(3, 2);
+        Razionale b = new Razionale(2, 4);
+        Razionale result = a.sottrazione(b);
+        Razionale expResult = new Razionale(1, 1);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -71,13 +70,12 @@ public class RazionaleTest {
     @Test
     public void testMoltiplicazione() {
         System.out.println("moltiplicazione");
-        Razionale r = null;
-        Razionale instance = new Razionale();
-        Razionale expResult = null;
-        Razionale result = instance.moltiplicazione(r);
+        Razionale a = new Razionale(1, 2);
+        Razionale b = new Razionale(2, 4);
+        Razionale result = a.moltiplicazione(b);
+        Razionale expResult = new Razionale (1, 4);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -86,26 +84,24 @@ public class RazionaleTest {
     @Test
     public void testDivisione() {
         System.out.println("divisione");
-        Razionale r = null;
-        Razionale instance = new Razionale();
-        Razionale expResult = null;
-        Razionale result = instance.divisione(r);
+        Razionale a = new Razionale(5, 2);
+        Razionale b = new Razionale(4, 3);
+        Razionale result = a.divisione(b);
+        Razionale expResult = new Razionale (15, 8);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of semplifica method, of class Razionale.
      */
-    @Test
-    public void testSemplifica() {
-        System.out.println("semplifica");
-        Razionale r = null;
-        Razionale instance = new Razionale();
-        instance.semplifica(r);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  public void testSemplifica()
+    {
+        System.out.println("Semplifica");
+        Razionale instance = new Razionale(4, 2);
+        String expResult = "2/1";
+        String result = instance.toString();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -119,7 +115,7 @@ public class RazionaleTest {
         String result = instance.toString();
         assertEquals(expResult, result);
     }
-    
+
     /**
      * Test of toString method, of class Razionale.
      */
@@ -127,10 +123,10 @@ public class RazionaleTest {
     public void testToStringDenNeg() {
         System.out.println("toStringDenNeg");
         Razionale instance = new Razionale(1, -4);
-        String expResult = "-1/4";
+        String expResult = "1/-4";
         String result = instance.toString();
         assertEquals(expResult, result);
     }
-        
-    
+
+
 }

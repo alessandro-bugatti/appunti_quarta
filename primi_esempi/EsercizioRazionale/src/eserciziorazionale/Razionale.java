@@ -6,7 +6,8 @@
 package eserciziorazionale;
 
 /**
- *
+ * Questa classe rappresenta dei numeri razionali, 
+ * sempre ridotti ai minimi termini
  * @author Basile Mirko, Maffi Daniele, Fusari Cristian
  */
 public class Razionale {
@@ -23,6 +24,7 @@ public class Razionale {
     {
         this.numeratore = a;
         this.denominatore = b;
+        semplifica(this);
     }
     
     /**
@@ -71,7 +73,7 @@ public class Razionale {
             d = comuneDenominatore(r);
         else
             d = this.denominatore;
-        c.numeratore = d/r.denominatore*r.numeratore - d/this.denominatore*this.numeratore;
+        c.numeratore = - d/r.denominatore*r.numeratore + d/this.denominatore*this.numeratore;
         c.denominatore = d;
         semplifica(c);
         return c;
@@ -104,14 +106,25 @@ public class Razionale {
         semplifica(c);
         return c;
     }
+    /**
+     * Algoritmo di Euclide per il calcolo del MCD
+     * 
+     */
+    private static int MCD(int a, int b)
+    {
+        return 1;
+    }
     
     /**
      * Semplifica una frazione passata
      * @param r frazione da semplificare
      */
-    public void semplifica(Razionale r)
+    private static void semplifica(Razionale r)
     {
-        int i;
+        int i = MCD(r.numeratore, r.denominatore);
+        r.numeratore /= i; 
+        r.denominatore /= i;
+        /*int i;
         boolean semplificato = false;
         if (r.numeratore < r.denominatore)
             i = r.numeratore;
@@ -126,7 +139,7 @@ public class Razionale {
                 semplificato = true;
             }
             i--;
-        }
+        }*/
     }
 
     @Override

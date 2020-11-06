@@ -10,7 +10,7 @@ package eserciziorazionale;
  * @author alex_2
  */
 public class EsercizioRazionale {
-
+    
     /**
      * @param args the command line arguments
      */
@@ -31,8 +31,7 @@ public class EsercizioRazionale {
         b = null;
         if (a.equals(b))
             System.out.println("3 - Sono uguali");
-        
-        
+        //Razionale.semplifica(b);
     }
     
 }
