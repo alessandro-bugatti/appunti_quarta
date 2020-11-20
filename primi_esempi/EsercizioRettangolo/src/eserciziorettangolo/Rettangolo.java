@@ -31,7 +31,7 @@ public class Rettangolo {
     }
     
     public boolean interseca(Rettangolo r) {
-        return ;
+        return false;
     }
     
     public boolean spostaX(int distanza) {
@@ -40,7 +40,7 @@ public class Rettangolo {
     }
     
     public boolean spostaY(int distanza) {
-        return ;
+        return false;
     }
     
     public void ruota()
