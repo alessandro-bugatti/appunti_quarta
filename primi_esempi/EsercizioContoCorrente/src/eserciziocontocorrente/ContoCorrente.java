@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package eserciziocontocorrente;
 
 /**
  *
- * @author Alessandro Bugatti
+ * @author Fusari
  */
 public class ContoCorrente {
     private int numeroConto;
@@ -16,6 +15,9 @@ public class ContoCorrente {
     private String cognome;
     private double saldo;
     private static int contatore = 1;
+    private Operazione operazioni[];
+    private int numeroOperazioni;
+    private static final int MAX = 100;
     
     public ContoCorrente(String nome, String cognome)
     {
@@ -23,24 +25,24 @@ public class ContoCorrente {
         this.cognome = cognome;
         this.saldo = 0;
         this.numeroConto = generaCodice();
+        this.numeroOperazioni = 0;
+        this.operazioni = new Operazione[MAX];
+    }
+
+    private static int generaCodice()
+    {
+        return contatore++;
     }
     
-    /* Probabilmente qua non serve un costruttore di copia
-    public ContoCorrente(ContoCorrente c)
+    public void deposita (double qta, String descrizione)
     {
-        this.nome = c.nome;
-        this.cognome = c.cognome;
-        this.saldo = c.saldo;
-        this.numeroConto = c.numeroConto;
-    }
-    */
-    
-    public void deposita(double qta)
-    {
+        Operazione op = new Operazione (qta, descrizione);
+        operazioni[numeroOperazioni] = op;
+        numeroOperazioni++;
         this.saldo += qta;
     }
     
-    public boolean preleva(double qta)
+    public boolean preleva (double qta, String descrizione)
     {
         if (qta <= this.saldo)
         {
@@ -49,17 +51,33 @@ public class ContoCorrente {
         }
         return false;
     }
-
-    private static int generaCodice()
+    
+    public boolean inserisciOperazione(Operazione op)
     {
-        return contatore++;
-        //return (int)(Math.random() * 1000000.0);
+        operazioni[numeroOperazioni] = op;
+        numeroOperazioni++;
+        this.saldo += op.getQta();
+        return true;
+    }
+    
+    public double saldo()
+    {
+        return this.saldo;
+    }
+    
+    public String getNominativo()
+    {
+        return this.nome + " " + this.cognome;
     }
     
     @Override
     public String toString() {
-        return "ContoCorrente{" + "numeroConto=" + numeroConto + ", nome=" + nome + ", cognome=" + cognome + ", saldo=" + saldo + '}';
+        String s = "ContoCorrente{" + "numeroConto=" + numeroConto + ", nome=" + nome + ", cognome=" + cognome + ", saldo=" + saldo + "}\n";
+        for (int i = 0; i < this.numeroOperazioni; i++)
+        {
+            s += this.operazioni[i].toString();
+        }
+        return s;
     }
-    
     
 }

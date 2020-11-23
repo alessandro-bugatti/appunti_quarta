@@ -7,7 +7,7 @@ package eserciziocontocorrente;
 
 /**
  *
- * @author alex_2
+ * @author Fusari
  */
 public class EsercizioContoCorrente {
 
@@ -15,21 +15,14 @@ public class EsercizioContoCorrente {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ContoCorrente c1 = new ContoCorrente("Gianni",
-        "Pallino");
+        ContoCorrente c1 = new ContoCorrente ("Gianni","Pallino");
         System.out.println(c1);
-        ContoCorrente c2 = new ContoCorrente("Gianna",
-        "Pallino");
+        ContoCorrente c2 = new ContoCorrente ("Gianna","Pallino");
         System.out.println(c2);
-        ContoCorrente c3 = new ContoCorrente("Pinuccio",
-        "Pastrumi");
-        System.out.println(c3);
-        c3.deposita(1000);
-        System.out.println(c3);  
-        c3.preleva(400);
-        System.out.println(c3); 
-        c3.preleva(1000);
-        System.out.println(c3); 
+        c2.deposita(1000, "Bonifico per stipendio");
+        c2.deposita(500, "Pagamento fattura Giorgio Bugni");
+        System.out.println(c2);
+        
     }
     
 }
