@@ -261,10 +261,10 @@ public class Vettore
         int m = (a + b)/2;
         if (cercato == v[m])
             return m;
-        else if 
-            return ricercaRicorsivaR(a, b, cercato)
+        else if (v[m] < cercato) 
+            return ricercaRicorsivaR(m + 1 , b, cercato);
         else
-            
+            return ricercaRicorsivaR(a , m - 1, cercato);
     }    
     public int ricercaBinaria(int cercato)
     {
