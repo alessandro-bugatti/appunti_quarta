@@ -4,31 +4,39 @@
  * and open the template in the editor.
  */
 package eserciziocontocorrente;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 /**
  *
- * @author Fusari
+ * @author Maffi Daniele, Palestro Lorenzo, Basile Mirko
  */
 public class Operazione {
     private double qta;
     private LocalDateTime dataTempo;
     private String descrizione;
+    private String data;
     
-    public Operazione (double qta, String descrizione)
-    {
-        this.qta = qta;
-        this.descrizione = descrizione;
-        this.dataTempo = LocalDateTime.now();
-    }
-
-    public double getQta()
-    {
+    public double getQta(){
         return qta;
     }
     
-    @Override
-    public String toString() {
-        return "Operazione{" + "qta=" + qta + ", dataTempo=" + dataTempo + ", descrizione=" + descrizione + "}\n";
+    public void setDescrizione(String s){
+        this.descrizione = s;
     }
     
+    public Operazione(double qta, String descrizione){
+        this.qta = qta;
+        this.descrizione = descrizione;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        dataTempo = LocalDateTime.now();
+        data = dtf.format(dataTempo);
+    }
+
+    @Override
+    public String toString() {
+        return "quota: " + qta + ", data e ora: " + data + ", descrizione: " + descrizione;
+    }   
 }

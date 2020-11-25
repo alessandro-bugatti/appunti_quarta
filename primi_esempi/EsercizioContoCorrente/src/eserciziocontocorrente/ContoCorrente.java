@@ -7,77 +7,93 @@ package eserciziocontocorrente;
 
 /**
  *
- * @author Fusari
+ * @author Maffi Daniele, Palestro Lorenzo, Basile Mirko
  */
 public class ContoCorrente {
     private int numeroConto;
     private String nome;
     private String cognome;
     private double saldo;
-    private static int contatore = 1;
-    private Operazione operazioni[];
-    private int numeroOperazioni;
+    private static int contatore;
+    private Operazione []operazioni;
+    private int numeroOperazioni; 
     private static final int MAX = 100;
     
-    public ContoCorrente(String nome, String cognome)
-    {
+    public ContoCorrente(String nome, String cognome){
         this.nome = nome;
         this.cognome = cognome;
         this.saldo = 0;
         this.numeroConto = generaCodice();
-        this.numeroOperazioni = 0;
+        this.contatore = 1;
         this.operazioni = new Operazione[MAX];
+        this.numeroOperazioni = 0;
     }
-
-    private static int generaCodice()
-    {
+    
+    public ContoCorrente(ContoCorrente c){
+        this.nome = c.nome;
+        this.cognome = c.cognome;
+        this.saldo = c.saldo;
+        this.numeroConto = c.numeroConto;
+        this.contatore = c.contatore;
+        //this.operazioni = c.operazioni;
+        this.operazioni = new Operazione[MAX];
+        for(int i = 0; i < c.numeroOperazioni; i++)
+            this.operazioni[i] = c.operazioni[i];
+        this.numeroOperazioni = c.numeroOperazioni;
+    }
+    
+    public void modificaCognome(String s){
+        this.cognome = s;
+    }
+    
+    public boolean modificaDescrizioneOperazione(int posizione, String nuovaDescrizione){
+        if(posizione < 0 || posizione >= this.numeroOperazioni)
+            return false;
+        this.operazioni[posizione].setDescrizione(nuovaDescrizione);
+        return true;
+    }
+    
+    private static int generaCodice(){
         return contatore++;
     }
     
-    public void deposita (double qta, String descrizione)
-    {
+    public double saldo(){
+        return saldo;
+    }
+    
+    public void deposita(double qta, String descrizione){
         Operazione op = new Operazione (qta, descrizione);
-        operazioni[numeroOperazioni] = op;
-        numeroOperazioni++;
+        this.operazioni[numeroOperazioni++] = op;
         this.saldo += qta;
     }
     
-    public boolean preleva (double qta, String descrizione)
-    {
-        if (qta <= this.saldo)
-        {
+    public boolean preleva(double qta, String descrizione){
+        if(qta <= this.saldo){
+            Operazione op = new Operazione(-qta, descrizione);
+            this.operazioni[numeroOperazioni++] = op;
             this.saldo -= qta;
             return true;
         }
         return false;
     }
     
-    public boolean inserisciOperazione(Operazione op)
-    {
-        operazioni[numeroOperazioni] = op;
-        numeroOperazioni++;
+    public boolean inseriscioperazione(Operazione op){
+        operazioni[numeroOperazioni++] = op;
         this.saldo += op.getQta();
         return true;
     }
     
-    public double saldo()
-    {
-        return this.saldo;
+    public String getNominativo(){
+        return this.cognome + ' ' + this.nome;
     }
-    
-    public String getNominativo()
-    {
-        return this.nome + " " + this.cognome;
-    }
-    
+
     @Override
     public String toString() {
-        String s = "ContoCorrente{" + "numeroConto=" + numeroConto + ", nome=" + nome + ", cognome=" + cognome + ", saldo=" + saldo + "}\n";
-        for (int i = 0; i < this.numeroOperazioni; i++)
-        {
+        String s = "numeroConto: " + numeroConto + ", nome: " + nome + ", cognome: " + cognome + ", saldo: " + saldo + "\n";
+        for(int i = 0; i < this.numeroOperazioni; i++){
             s += this.operazioni[i].toString();
+            s += "\n";
         }
         return s;
     }
-    
 }
