@@ -34,6 +34,14 @@ public class EsercizioContoCorrente {
         c2.modificaCognome("Pallone");
         System.out.println("c2:\n" + c2);
         System.out.println("c3:\n" + c3);
+        Operazione[] op = c3.getPrelievi();
+        System.out.println("Elenco dei prelievi di c3");
+        for (int i = 0; i < op.length; i++)
+            System.out.println(op[i]);
+        op[0].setDescrizione("Nuovo prelievo");
+        System.out.println("c3:\n" + c3);
+        
+        
     }
     
 }

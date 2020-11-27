@@ -35,6 +35,16 @@ public class Operazione {
         data = dtf.format(dataTempo);
     }
 
+    /**
+     * Costruttore di copia
+    */
+    public Operazione(Operazione op)
+    {
+        this.qta = op.qta;
+        this.data = op.data;
+        this.dataTempo = op.dataTempo;
+        this.descrizione = op.descrizione;
+    }
     @Override
     public String toString() {
         return "quota: " + qta + ", data e ora: " + data + ", descrizione: " + descrizione;

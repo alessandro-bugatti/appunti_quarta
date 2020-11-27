@@ -15,7 +15,7 @@ public class ContoCorrente {
     private String cognome;
     private double saldo;
     private static int contatore;
-    private Operazione []operazioni;
+    private Operazione[] operazioni;
     private int numeroOperazioni; 
     private static final int MAX = 100;
     
@@ -77,10 +77,34 @@ public class ContoCorrente {
         return false;
     }
     
-    public boolean inseriscioperazione(Operazione op){
+    public boolean inserisciOperazione(Operazione op){
         operazioni[numeroOperazioni++] = op;
         this.saldo += op.getQta();
         return true;
+    }
+    
+    /**
+     * Ritorna un elenco di tutti i prelievi
+     * @return Il vettore contenente le operazioni di prelievo
+     */
+    public Operazione[] getPrelievi()
+    {
+        Operazione[] temp;
+        int numeroPrelievi = 0;
+        for (int i = 0; i < this.numeroOperazioni; i++)
+            if (this.operazioni[i].getQta() < 0)
+                numeroPrelievi++;
+        if (numeroPrelievi > 0)
+        {
+            temp = new Operazione[numeroPrelievi];
+            int pos = 0;
+            for (int i = 0; i < this.numeroOperazioni; i++)
+                if (this.operazioni[i].getQta() < 0)
+                    temp[pos++] = new Operazione(this.operazioni[i]);
+            return temp;
+        }
+        else
+            return null;
     }
     
     public String getNominativo(){
