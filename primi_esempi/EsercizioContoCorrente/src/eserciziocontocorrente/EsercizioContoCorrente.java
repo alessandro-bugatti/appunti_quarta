@@ -15,7 +15,7 @@ public class EsercizioContoCorrente {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ContoCorrente c1 = new ContoCorrente("Gianni", "Pallino");
+        /*ContoCorrente c1 = new ContoCorrente("Gianni", "Pallino");
         System.out.println(c1);
         ContoCorrente c2 = new ContoCorrente("Gianna", "Pallino");
         System.out.println(c2);
@@ -40,8 +40,48 @@ public class EsercizioContoCorrente {
             System.out.println(op[i]);
         op[0].setDescrizione("Nuovo prelievo");
         System.out.println("c3:\n" + c3);
+        */
+        //Dichiarare un vettore di tre conti correnti
+        //Riempierlo con tre nuovi conti correnti
+        //Chiedere all'utente di inserire la posizione
+        //nel vettore del conto che si intende visualizzare
+        //e visualizzarlo.
+        //Provare a farlo una volta con un indice valido e una
+        //volta con un indice non valido
         
         
+        ContoCorrente c = new ContoCorrente("Pino", "Arcelli");
+        /*try{
+            for (int i = 0;i < 100; i++)
+                c.deposita(100, "Stipendio");
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Indice sbagliato");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.println("Oggetto null");
+        }
+        catch(ArithmeticException e)
+        {
+            System.out.println("Divisione per zero");
+        }    
+        finally{
+            System.out.println("IL programma ha generato un'errore irrecuperabile e verrà terminato");
+            //Chiude i file aperti, ad esempio
+            //Manda una segnalazione al programmatore
+            System.exit(0); 
+        }
+        */
+        try{
+            c.deposita(0, "");
+        }
+        catch(Exception e)
+        {
+            System.out.println("C'è stato un errore nell'operazione " + e);
+        }
+        System.out.println(c);
     }
     
 }

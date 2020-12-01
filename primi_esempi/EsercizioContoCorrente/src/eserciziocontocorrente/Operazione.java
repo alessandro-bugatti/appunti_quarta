@@ -27,7 +27,19 @@ public class Operazione {
         this.descrizione = s;
     }
     
-    public Operazione(double qta, String descrizione){
+    //Progettiamo il costruttore in modo che se si verifica una condizione
+    //anomala il costruttore lancia un'eccezione
+    //Dichiarando che il metodo lancia un'eccezione, chi userà
+    //questo metodo è obbligato a gestirlo o rilanciare l'eccezione
+    //handle or declare
+    public Operazione(double qta, String descrizione) throws OperazioneNullaException {
+        if (qta == 0 && descrizione.equals(""))
+            throw new OperazioneNullaException("Operazione stupida");
+        else if (qta == 0)
+            //Lanciamo un'eccezione
+            throw new OperazioneNullaException("Hai inserito una quantità nulla");
+        else if (descrizione.equals(""))
+            throw new OperazioneNullaException("Manca la descrizione");
         this.qta = qta;
         this.descrizione = descrizione;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

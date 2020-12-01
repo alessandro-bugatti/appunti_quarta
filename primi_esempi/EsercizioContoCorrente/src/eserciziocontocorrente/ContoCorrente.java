@@ -61,8 +61,20 @@ public class ContoCorrente {
         return saldo;
     }
     
-    public void deposita(double qta, String descrizione){
+    public void deposita(double qta, String descrizione) throws OperazioneNullaException{
         Operazione op = new Operazione (qta, descrizione);
+        //Opzione handle
+        //In questo caso non sembra il punto giusto dove gestirla
+        /*
+        Operazione op = null;
+        try{
+            op = new Operazione (qta, descrizione);
+        }
+        catch(OperazioneNullaException e)
+        {
+            System.out.println("Operazione non riuscita");
+            return;
+        }*/
         this.operazioni[numeroOperazioni++] = op;
         this.saldo += qta;
     }
