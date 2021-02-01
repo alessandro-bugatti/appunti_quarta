@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -32,23 +34,40 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label lblValore;
     
-    
+    private Convertitore conv;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Da inserire il codice per inserire le conversioni 
-        //nell'oggetto di classe Convertitore e poi aggiungerli al
-        //ChoiceBox partendo da quella
-        choConversioni.getItems().add("Euro->Dollaro");
-        choConversioni.getItems().add("Dollaro->Euro");
-    }    
+        conv = new Convertitore();
+        conv.aggiungi(new Conversione("Euro", "Dollaro", 1.21));
+        conv.aggiungi(new Conversione("Dollaro", "Euro", 0.82));
+        conv.aggiungi(new Conversione("Euro", "Sterlina", 0.89));
+        conv.aggiungi(new Conversione("Sterlina", "Euro", 0.89));
+        choConversioni.getItems().addAll(conv.getElenco());
+        //Questo per evitare di avere il ChoiceBox che non
+        //mostra niente all'avvio del programma
+        choConversioni.getSelectionModel().selectFirst();
+}    
 
     @FXML
     private void handleBtnConverti(ActionEvent event) {
         String s = txtValore.getText();
-        double valore = Double.parseDouble(s);
+        double valore = 0;
+        try{
+            valore = Double.parseDouble(s);
+        }catch(NumberFormatException e)
+        {
+            //Per un semplice tutorial sui dialog
+            //vedere https://code.makery.ch/blog/javafx-dialogs-official/
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Errore di inserimento");
+            alert.setHeaderText("Il valore da convertire deve essere un numero");
+            alert.setContentText("Errore: " + e.getMessage());
+            alert.showAndWait();
+            return;
+        }
         String scelta = choConversioni.getSelectionModel().getSelectedItem();
-        //double valore = c.converti(scelta, 232.34);
+        valore = conv.converti(scelta, valore);
         lblValore.setText("" + valore);
         System.out.println(scelta);
     }

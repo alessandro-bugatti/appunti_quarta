@@ -5,12 +5,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="600.0" style="-fx-padding: 20; -fx-spacing: 20;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_convertitore.FXMLDocumentController">
    <children>
-      <TextField fx:id="txtValore" />
+      <TextField fx:id="txtValore" focusTraversable="false" promptText="Valore da convertire" />
       <ChoiceBox fx:id="choConversioni" prefWidth="150.0" />
-      <Label fx:id="lblValore" prefHeight="17.0" prefWidth="87.0" text="Label" />
-      <Button fx:id="btnConverti" mnemonicParsing="false" onAction="#handleBtnConverti" prefHeight="25.0" prefWidth="96.0" text="Button" />
+      <Label fx:id="lblValore" prefHeight="17.0" prefWidth="87.0" style="-fx-background-color: yellow; -fx-border-color: black;">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button fx:id="btnConverti" mnemonicParsing="false" onAction="#handleBtnConverti" prefHeight="25.0" prefWidth="96.0" text="Converti" />
    </children>
 </HBox>
