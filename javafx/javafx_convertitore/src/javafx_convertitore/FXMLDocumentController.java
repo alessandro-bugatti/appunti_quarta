@@ -42,7 +42,7 @@ public class FXMLDocumentController implements Initializable {
         conv.aggiungi(new Conversione("Euro", "Dollaro", 1.21));
         conv.aggiungi(new Conversione("Dollaro", "Euro", 0.82));
         conv.aggiungi(new Conversione("Euro", "Sterlina", 0.89));
-        conv.aggiungi(new Conversione("Sterlina", "Euro", 0.89));
+        conv.aggiungi(new Conversione("Sterlina", "Euro", 1.11));
         choConversioni.getItems().addAll(conv.getElenco());
         //Questo per evitare di avere il ChoiceBox che non
         //mostra niente all'avvio del programma
@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
         {
             //Per un semplice tutorial sui dialog
             //vedere https://code.makery.ch/blog/javafx-dialogs-official/
-            Alert alert = new Alert(AlertType.INFORMATION);
+            Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Errore di inserimento");
             alert.setHeaderText("Il valore da convertire deve essere un numero");
             alert.setContentText("Errore: " + e.getMessage());

@@ -32,8 +32,7 @@ public class Convertitore {
         s = new String[this.quanti];
         for (int i = 0; i < this.quanti; i++)
             s[i] = this.conv[i].toString();
-        return s;
-        
+        return s;   
     }
     
     double converti(String conversione, double valore)

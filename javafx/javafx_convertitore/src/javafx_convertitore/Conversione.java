@@ -26,7 +26,7 @@ public class Conversione {
         return da + " -> " + verso;
     }
     
-    double converti (double v)
+    public double converti (double v)
     {
         return v * this.valore;
     }
