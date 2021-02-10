@@ -43,7 +43,7 @@
                <children>
                   <Label text="Zucchero" />
                   <Slider fx:id="sldZucchero" blockIncrement="1.0" majorTickUnit="1.0" max="4.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-                  <Label text="Niente zucchero" />
+                  <Label fx:id="lblZucchero" text="Niente zucchero" />
                </children>
             </VBox>
          </children>
@@ -57,7 +57,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="158.0" text="GO!" />
+            <Button fx:id="btnEroga" mnemonicParsing="false" onAction="#handleBtnEroga" prefHeight="25.0" prefWidth="158.0" text="GO!" />
          </children>
       </HBox>
       <Label prefHeight="17.0" prefWidth="430.0" text="Risultato" />
