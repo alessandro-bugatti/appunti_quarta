@@ -29,9 +29,9 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="grpBevande" />
                      </toggleGroup></RadioButton>
-                  <RadioButton fx:id="rdbMoccaccino" mnemonicParsing="false" onAction="#handlePrezzoMoccaccino" text="Moccaccino" toggleGroup="$grpBevande" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$grpBevande" />
-                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$grpBevande" />
+                  <RadioButton fx:id="rdbCappuccino" mnemonicParsing="false" onAction="#handlePrezzoCappuccino" text="Cappuccino" toggleGroup="$grpBevande" />
+                  <RadioButton fx:id="rdbCioccolato" mnemonicParsing="false" onAction="#handlePrezzoCioccolato" text="Cioccolato" toggleGroup="$grpBevande" />
+                  <RadioButton fx:id="rdbMokkaccino" mnemonicParsing="false" onAction="#handlePrezzoMokkaccino" text="Mokkaccino" toggleGroup="$grpBevande" />
                   <Label fx:id="lblPrezzo" text="Prezzo: ">
                      <font>
                         <Font size="18.0" />
@@ -48,11 +48,11 @@
             </VBox>
          </children>
       </HBox>
-      <HBox prefHeight="39.0" prefWidth="600.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="600.0" style="-fx-padding: 10; -fx-spacing: 10;">
          <children>
-            <Button mnemonicParsing="false" text="Inserisci moneta" />
-            <TextField />
-            <Label text="Informazione" />
+            <Button fx:id="btnInserisci" mnemonicParsing="false" onAction="#handleBtnInserisci" prefHeight="25.0" prefWidth="146.0" text="Inserisci moneta" />
+            <TextField fx:id="txtMoneta" prefHeight="25.0" prefWidth="53.0" />
+            <Label fx:id="lblInformazioniPrezzo" prefHeight="17.0" prefWidth="341.0" text="Stato: " />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="600.0">
@@ -60,6 +60,6 @@
             <Button fx:id="btnEroga" mnemonicParsing="false" onAction="#handleBtnEroga" prefHeight="25.0" prefWidth="158.0" text="GO!" />
          </children>
       </HBox>
-      <Label prefHeight="17.0" prefWidth="430.0" text="Risultato" />
+      <Label fx:id="lblRisultato" prefHeight="50.0" prefWidth="612.0" style="-fx-border-style: solid; -fx-border-insets: 4;" wrapText="true" />
    </children>
 </VBox>
