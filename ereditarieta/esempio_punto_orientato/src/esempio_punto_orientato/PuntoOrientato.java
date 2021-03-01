@@ -26,7 +26,91 @@ public class PuntoOrientato extends Punto{
         super(x,y);
         this.orientamento = orientamento;
     }
+    
+    public PuntoOrientato(PuntoOrientato p)
+    {
+        //Valido sintatticamente, ma bisogna passare dal costruttore
+        //this.setX(p.getX());
+        //this.setX(p.getX());
+        super(p.getX(), p.getY());
+        this.orientamento = p.orientamento;
+    }
 
+    public char getOrientamento() {
+        return orientamento;
+    }
+
+    public void setOrientamento(char orientamento) {
+        this.orientamento = orientamento;
+    }
+
+    public void ruotaDestra()
+    {
+        char o = this.getOrientamento();
+        if (o == 'A')
+            //this.orientamento = 'D';
+            this.setOrientamento('D');
+        else if (o == 'D')
+            this.setOrientamento('B');
+        else if (o == 'B')
+            this.setOrientamento('S');
+        else if (o == 'S')
+            this.setOrientamento('A');
+    }
+    
+    public void ruotaSinistra()
+    {
+        char o = this.getOrientamento();
+        if (o == 'A')
+            //this.orientamento = 'D';
+            this.setOrientamento('S');
+        else if (o == 'S')
+            this.setOrientamento('B');
+        else if (o == 'B')
+            this.setOrientamento('D');
+        else if (o == 'D')
+            this.setOrientamento('A');
+    }
+    
+    public void sposta(double distanza)
+    {
+        char o = this.getOrientamento();
+        if (o == 'A')
+            this.setY(this.getY() + distanza);
+        else if (o == 'S')
+            this.setX(this.getX() - distanza);
+        else if (o == 'B')
+            this.setY(this.getY() - distanza);
+        else if (o == 'D')
+            this.setX(this.getX() + distanza);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PuntoOrientato other = (PuntoOrientato) obj;
+        if (this.getX() != other.getX()) {
+            return false;
+        }
+        if (this.getY() != other.getY()) {
+            return false;
+        }
+        if (this.orientamento != other.orientamento) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
     @Override
     public String toString() {
         return super.toString() + //"PuntoOrientato{" +

@@ -17,6 +17,17 @@ public class Esempio_punto_orientato {
     public static void main(String[] args) {
         PuntoOrientato po = new PuntoOrientato(9, 6, 'D');
         System.out.println(po);
+        PuntoOrientato po2 = new PuntoOrientato(po);
+        
+        System.out.println(po2);
+        po2.ruotaDestra();
+        System.out.println(po);
+        System.out.println(po2);
+        
+        if (po.equals(po2))
+            System.out.println("Uguali");
+        else
+            System.out.println("Diversi");
         
     }
     
