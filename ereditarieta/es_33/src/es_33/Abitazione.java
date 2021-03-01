@@ -81,6 +81,7 @@ public class Abitazione {
         if (getClass() != obj.getClass()) {
             return false;
         }
+        //Up casting esplicito
         final Abitazione other = (Abitazione) obj;
         if (this.stanze != other.stanze) {
             return false;

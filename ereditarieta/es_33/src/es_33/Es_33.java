@@ -24,6 +24,7 @@ public class Es_33 {
         //Down-casting illegale, molto spesso lo è
         //Villa d = new Abitazione(3,55,"Via dei Pini 22", "Brescia");
         c.setCitta("Milano");
+        Villa d = (Villa)c;
         //d.getGiardino();
         System.out.println(c);
     }
