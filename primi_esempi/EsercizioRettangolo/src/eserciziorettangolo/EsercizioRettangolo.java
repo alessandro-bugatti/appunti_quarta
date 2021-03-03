@@ -6,8 +6,10 @@
 package eserciziorettangolo;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
@@ -35,6 +37,7 @@ public class EsercizioRettangolo {
         //BufferedReader bufffer2 = new BufferedReader(new InputStreamReader(System.in));
         String s = "";
         try {
+            System.out.println("Inserisci una stringa con due interi separati da spazio:");
             //Leggo una stringa da tastiera
             s = buffer.readLine();
         } catch (IOException ex) {
@@ -71,6 +74,18 @@ public class EsercizioRettangolo {
             Logger.getLogger(EsercizioRettangolo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(EsercizioRettangolo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         
+        try {
+            FileWriter out = new FileWriter("output.txt");
+            BufferedWriter bufferOut = new BufferedWriter(out);
+            bufferOut.write(a.getX() + " " + a.getY());
+            bufferOut.newLine();
+            bufferOut.flush();
+            bufferOut.close();
+        } catch (IOException ex) {
+            System.out.println("errore");
         }
         
         
