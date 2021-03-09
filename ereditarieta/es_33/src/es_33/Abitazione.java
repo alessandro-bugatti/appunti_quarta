@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Alessandro Bugatti
  */
-public class Abitazione {
+abstract public class Abitazione {
  /**
  *
  * @author basil

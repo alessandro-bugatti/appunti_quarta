@@ -15,7 +15,11 @@ public class Es_33 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Abitazione abitazione = new Abitazione(4,75,"Via dei Pini 12", "Brescia");
+        //Se abitazione diventa astratta non si possono più 
+        //istanziare oggetti di tipo abitazione
+        Abitazione abitazione;//non si può più fare = new Abitazione(4,75,"Via dei Pini 12", "Brescia");
+        //Però posso fare
+        abitazione = new Villa(3,100,true,6, 250, "Via dei Tigli 23", "Palermo");
         //System.out.println(a);
         Villa villa = new Villa(2,1000,true,7, 200, "Via dei Ciliegi 23", "Brescia");
         //Up-casting legale
