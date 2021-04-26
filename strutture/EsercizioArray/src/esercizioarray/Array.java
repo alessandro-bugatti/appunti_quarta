@@ -23,14 +23,14 @@ public class Array {
     
     public boolean add(int i, int e)
     {
-        
+        return true;
     }
     
     //Aggiunge un elemento in coda al vettore, 
     //deve essere sempre possibile
     public boolean add(int e)
     {
-        
+        return true;
     }
     
     //Array a che contiene [2,3,4]
@@ -40,13 +40,13 @@ public class Array {
     //se l'indice è corretto
     public boolean addAll(int i, Array a)
     {
-        
+        return true;
     }
     
     //Equivalente di a[i];
     public int get(int i)
     {
-        
+        return 0;
     }
     
     
