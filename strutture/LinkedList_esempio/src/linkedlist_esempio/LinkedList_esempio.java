@@ -30,6 +30,18 @@ public class LinkedList_esempio {
         System.out.println(lista);
         lista2.add(1,33);
         System.out.println(lista);
+        int cercato = 18;
+        if (lista.contains(cercato))
+            System.out.println("presente il " + cercato);
+        else
+            System.out.println("non presente il " + cercato);
+        lista.clear();
+        if (lista.contains(cercato))
+            System.out.println("presente il " + cercato);
+         else
+            System.out.println("non presente il " + cercato);
+        
+        
     }
     
 }
