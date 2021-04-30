@@ -101,22 +101,43 @@ public class LinkedList {
     
     //Il parametro valore rappresenta il valore da eliminare
     //e non la sua posizione
-    public boolean remove(int valore) {
+    public boolean remove(int e) {
+        if (n_elementi == 0)
+            return false;
+        boolean trovato = false;
+        while (testa.info == e) {
+            //System.out.println("here");
+            testa = testa.next;
+            n_elementi--;
+            trovato = true;
+            if (n_elementi == 0)
+                return true;
+        }
+        Nodo temp = testa;
         
-        return true;
-    }
-    
-    public boolean removeAll(LinkedList l) {
-        Nodo temp = l.testa;
-        for (int i = 0; i < l.size(); i++) {
-            if (this.contains(temp.info)) {
-                this.remove(temp.info);
+        //Questo while permettere di attraversare la lista
+        while (temp.next != null) {
+            if (temp.next.info == e) {
+                temp.next = temp.next.next;
+                n_elementi--;
+                trovato = true;
+            } else {
+                temp = temp.next;
             }
         }
+        return trovato;
+    }
+    public boolean removeAll (LinkedList l) {
+        Nodo temp = l.testa;
+        for (int i = 0; i<l.size(); i++) {
+            this.remove(temp.info);
+            temp = temp.next;
+        }
+        return true;
     }
 
     public boolean retainAll(LinkedList l) {
-        
+        return true;
     }
     
     void clear() {
@@ -143,7 +164,7 @@ public class LinkedList {
             s += temp.info + " -> ";
             temp = temp.next;
         }
-        return "LinkedList{" + s + "null}";
+        return "[" + s + "null]";
     }
 
 }
