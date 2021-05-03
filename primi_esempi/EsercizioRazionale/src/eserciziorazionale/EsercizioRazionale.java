@@ -32,6 +32,8 @@ public class EsercizioRazionale {
         if (a.equals(b))
             System.out.println("3 - Sono uguali");
         //Razionale.semplifica(b);
+        Razionale d = new Razionale(12,18);
+        System.out.println(d);
     }
     
 }

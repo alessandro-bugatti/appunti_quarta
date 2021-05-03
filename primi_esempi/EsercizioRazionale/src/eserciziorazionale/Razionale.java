@@ -112,7 +112,9 @@ public class Razionale {
      */
     private static int MCD(int a, int b)
     {
-        return 1;
+        if (b == 0)
+            return a;
+        return MCD (b, a%b);
     }
     
     /**
