@@ -42,9 +42,13 @@ public class EsempioArrayList {
         a.addAll(2,b);
         System.out.println(a);
         
-        for (int i = 0; i < 200000; i++)
-            a.add((a.size() - 1)/2
-                    , new Razionale(1,2));
+        //for (int i = 0; i < 200000; i++)
+        //    a.add((a.size() - 1)/2
+        //            , new Razionale(1,2));
+        ArrayList<Integer> interi;
+        interi = new ArrayList<>();
+        interi.add(13);
+        System.out.println(interi);
     }
     
 }

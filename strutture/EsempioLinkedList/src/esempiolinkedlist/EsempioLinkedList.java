@@ -39,6 +39,26 @@ public class EsempioLinkedList {
         System.out.println(a);
         System.out.println(b);
         System.out.println(a.get(2));
+        
+        ArrayList <Razionale> l = new ArrayList<>(a);
+        System.out.println(l);
+        
+        //Tipo dell'oggetto contenuto nella collezione
+        //Nome della variabile, va bene qualsiasi cosa
+        //verrà usato nel corpo per indicare l'oggetto corrente
+        //Il nome della collezione su cui iterare
+        for (Razionale r: l)
+        {
+            System.out.println(r);
+        }
+        ArrayList <Razionale> l2 = new ArrayList<>();
+        
+        for (Razionale r: a)
+        {
+            l2.add(r);
+        }
+        System.out.println(l2);
+        
     }
     
 }
