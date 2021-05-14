@@ -17,34 +17,60 @@ public class Telefonata {
     private String codiceCliente;
     private String codiceDipendente;
     private LocalDateTime istanteChiamata;
-    static private AnagraficaClienti clienti;
-    static private AnagraficaDipendenti dipendenti;
-    
-    public Telefonata(String telefono, String codiceCliente, String codiceDipendente) {
+    private String note;
+        
+    public Telefonata(String telefono, String codiceCliente,
+            String codiceDipendente, String note) {
         this.telefono = telefono;
         this.codiceCliente = codiceCliente;
         this.codiceDipendente = codiceDipendente;
+        this.note = note;
         this.istanteChiamata = LocalDateTime.now();
     }
-    
-    static void setAnagraficaClienti(AnagraficaClienti a)
-    {
-        clienti = a;
+
+    public String getTelefono() {
+        return telefono;
     }
-    
-    static void setAnagraficaDipendenti(AnagraficaDipendenti a)
-    {
-        dipendenti = a;
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
-    
+
+    public String getCodiceCliente() {
+        return codiceCliente;
+    }
+
+    public void setCodiceCliente(String codiceCliente) {
+        this.codiceCliente = codiceCliente;
+    }
+
+    public String getCodiceDipendente() {
+        return codiceDipendente;
+    }
+
+    public void setCodiceDipendente(String codiceDipendente) {
+        this.codiceDipendente = codiceDipendente;
+    }
+
+    public LocalDateTime getIstanteChiamata() {
+        return istanteChiamata;
+    }
+
+    public void setIstanteChiamata(LocalDateTime istanteChiamata) {
+        this.istanteChiamata = istanteChiamata;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     public String toString() {
-        String s = "Informazioni\n";
-        s += clienti.ricercaPerCodice(this.codiceCliente);
-        return s;
+        return "Telefonata{" + "telefono=" + telefono + ", codiceCliente=" + codiceCliente + ", codiceDipendente=" + codiceDipendente + ", istanteChiamata=" + istanteChiamata + ", note=" + note + '}';
     }
-    
-    
-    
     
 }

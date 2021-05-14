@@ -16,6 +16,10 @@ import java.util.HashMap;
 public class AnagraficaClienti {
     private HashMap<String, Cliente> clienti;
     
+    public AnagraficaClienti() {
+        this.clienti = new HashMap<>();
+    }
+       
     public void aggiungi(String codice, String nome, String cognome,
             String indirizzo, String citta)
     {
@@ -30,6 +34,6 @@ public class AnagraficaClienti {
     
     public Cliente ricercaPerCodice(String codice)
     {
-        return clienti.get(codice);
+        return this.clienti.get(codice);
     }
 }
