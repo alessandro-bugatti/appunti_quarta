@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class ElencoTelefonate {
     ArrayList<Telefonata> telefonate;
-
+    
     public ElencoTelefonate() {
         this.telefonate = new ArrayList<>();
     }
@@ -28,9 +28,24 @@ public class ElencoTelefonate {
     {
         for (int i = this.telefonate.size() - 1; i >= 0 ; i--)
         {
-            if (this.telefonate.get(i).getTelefono() == numeroTelefono)
+            if (this.telefonate.get(i).getTelefono().equals(numeroTelefono))
                 return this.telefonate.get(i);
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        String s = "";
+        for(Telefonata t : telefonate)
+            s += t + "\n";
+        return s;
+    }
+    
+    public ArrayList<Telefonata> getTelefonate()
+    {
+        return telefonate;
+    }
+    
+    
 }

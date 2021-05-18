@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  *
  * @author Alessandro Bugatti
  */
-public class Telefonata {
+public class Telefonata implements Comparable<Telefonata>{
     private String telefono;
     private String codiceCliente;
     private String codiceDipendente;
@@ -73,4 +73,9 @@ public class Telefonata {
         return "Telefonata{" + "telefono=" + telefono + ", codiceCliente=" + codiceCliente + ", codiceDipendente=" + codiceDipendente + ", istanteChiamata=" + istanteChiamata + ", note=" + note + '}';
     }
     
+    @Override
+    public int compareTo(Telefonata t)
+    {
+        return this.codiceDipendente.compareTo(t.codiceDipendente);
+    }
 }
