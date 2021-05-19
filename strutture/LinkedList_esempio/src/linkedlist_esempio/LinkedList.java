@@ -167,4 +167,42 @@ public class LinkedList {
         return "[" + s + "null]";
     }
 
+    
+    public void lastFirst()
+    {
+        if (testa == null || n_elementi == 1)
+            return;
+       Nodo first = testa;
+       Nodo last = testa;
+       for (int i = 0; i < n_elementi - 1; i++)
+           last = last.next;
+       int temp;
+       temp = first.info;
+       first.info = last.info;
+       last.info = temp;
+    }
+    
+    public boolean isSublist(LinkedList l)
+    {
+        if (this.n_elementi < l.n_elementi)
+            return false;
+        Nodo temp = this.testa;
+        while (temp != null)
+        {
+            Nodo temp2 = l.testa;
+            Nodo temp3 = temp;
+            int contatore = 0;
+            while (temp3 != null && temp2 != null && temp2.info == temp3.info)
+            {   
+                temp2 = temp2.next;
+                temp3 = temp3.next;
+                contatore++;
+            }
+            if (contatore == l.n_elementi)
+                return true;
+            temp = temp.next;
+        }
+        return false;
+        
+    }
 }
