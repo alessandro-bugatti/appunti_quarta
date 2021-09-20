@@ -52,3 +52,6 @@
 # Directories left from old Ant project
 /build/
 /nbproject/private/
+ 
+# Documentation
+doc/
