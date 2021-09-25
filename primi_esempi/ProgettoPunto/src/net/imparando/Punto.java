@@ -83,6 +83,10 @@ public class Punto {
         return d;
     }
 
+    /**
+     * Ritorna la distanza del punto dall'origine
+     * @return Distanza del punto dall'origine
+     */
     public double distanzaOrigine()
     {
         /*double d;
@@ -93,6 +97,12 @@ public class Punto {
         return this.distanza(o);
     }
 
+    /**
+     * Ritorna l'angolo che forma il segmento che parte
+     * dall'origine e arriva al punto
+     * @return L'angolo formato dal segmento che dall'origine
+     * arriva al punto
+     */
     public double angoloOrigine()
     {
         Punto p = new Punto(0,0);
