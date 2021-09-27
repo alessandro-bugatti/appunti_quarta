@@ -26,6 +26,7 @@ public class Main {
         Angolo beta = new Angolo(1);
         Angolo gamma = new Angolo(10);
 
+
         //Per verificare la correttezza delle operazioni
         //di conversione tra radianti e gradi
         //si veda https://www.periodni.com/it/convertitore_angolo.html
@@ -37,5 +38,9 @@ public class Main {
         System.out.println(gamma);
         Angolo delta = beta.somma(gamma);
         System.out.println(delta);
+        Angolo iota = new Angolo(270,15,12);
+        Angolo mu = new Angolo(359,59,59);
+        System.out.println("Iota: " + iota);
+        System.out.println("Mu: " + mu.convertiInStringa("Gradi"));
     }
 }
