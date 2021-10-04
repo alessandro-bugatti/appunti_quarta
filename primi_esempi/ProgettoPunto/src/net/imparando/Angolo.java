@@ -8,7 +8,7 @@ public class Angolo {
         this.ampiezza = 0;
     }
 
-    private double normalizza(double a)
+    static private double normalizza(double a)
     {
         while(a > 2*Math.PI)
             a -= 2*Math.PI;

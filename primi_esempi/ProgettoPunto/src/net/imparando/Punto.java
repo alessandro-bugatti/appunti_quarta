@@ -1,11 +1,13 @@
 package net.imparando;
 
-import static java.lang.Math.sqrt;
-
 /**
  * Classe che rappresenta un punto geometrico in un piano
  */
 public class Punto {
+    /*
+    Questi sono gli attributi, in questo caso privati,
+    della classe Punto
+     */
     private double x;
     private double y;
 
@@ -18,6 +20,16 @@ public class Punto {
     {
         this.setX(x);
         this.setY(y);
+    }
+
+    /**
+     * Costruttore di copia standard
+     * @param a L'oggetto da copiare
+     */
+    public Punto(Punto a)
+    {
+        this.setX(a.getX());
+        this.setY(a.getY());
     }
 
     /**
@@ -111,5 +123,46 @@ public class Punto {
         return radianti;
     }
 
+    @Override
+    public String toString() {
+        return "Punto{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        /**
+         * Verifica se un oggetto è uguale a se stesso
+         */
+        if (this == o) return true;
+        /**
+         * Verifica due aspetti
+         * Prima condizione: nessun oggetto può essere uguale a null
+         * Seconda condizione: due oggetti per essere uguali devono
+         * essere della stessa classe
+         */
+        if (o == null || getClass() != o.getClass()) return false;
+
+        //Casta l'oggetto o per "farlo diventare" un punto
+        Punto punto = (Punto) o;
+
+        /*
+        Due punti sono uguali se hanno le stesse coordinate x e y
+         */
+        if (Double.compare(punto.getX(), getX()) != 0) return false;
+        return Double.compare(punto.getY(), getY()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(getX());
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(getY());
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }
