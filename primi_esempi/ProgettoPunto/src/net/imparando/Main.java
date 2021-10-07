@@ -97,6 +97,14 @@ public class Main {
          * per verificare se sono uguali secondo la logica
          * di business
          */
+        Segmento seg;
+        seg = new Segmento(new Punto(0,2), new  Punto(3,4));
+        Segmento seg2;
+        seg2 = new Segmento(new Punto(3,4), new  Punto(0,2));
+        if (seg.equals(seg2) == true)
+            System.out.println("I due segmenti sono uguali");
+
+
 
 
     }
