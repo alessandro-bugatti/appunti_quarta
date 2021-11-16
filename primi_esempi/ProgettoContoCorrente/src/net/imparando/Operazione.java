@@ -1,8 +1,9 @@
 package net.imparando;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Operazione {
+public class Operazione implements Serializable {
     private double ammontare;
     private String descrizione;
     private LocalDateTime timestamp;

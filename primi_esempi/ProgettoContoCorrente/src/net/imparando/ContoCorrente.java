@@ -34,13 +34,15 @@
  */
 package net.imparando;
 
+import java.io.Serializable;
+
 /**
  * Classe semplice per gestire un conto corrente
  * con le operazioni di creazione, accredito, addebito e saldo
  *  
  * @author Alessandro Bugatti
  */
-public class ContoCorrente {
+public class ContoCorrente implements Serializable {
     private String codice;
     private String nome;
     private String cognome;
@@ -49,6 +51,10 @@ public class ContoCorrente {
     private int n_operazioni;
     private static final int MAX_OPERAZIONI = 1000;
 
+    /**
+     * Genera un codice unico di 6 cifre
+     * @return Codice unico (in senso probabilistico) di 6 cifre
+     */
 
     private String generaCodice()
     {
@@ -106,5 +112,10 @@ public class ContoCorrente {
     public String getNominativo()
     {
         return cognome + " " + nome;
+    }
+
+
+    public String getCodice() {
+        return codice;
     }
 }
