@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.imparando.tabellone_pallavolo.PallavoloController">
+   <left>
+      <VBox prefHeight="400.0" prefWidth="210.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblCasa" contentDisplay="CENTER" prefHeight="105.0" prefWidth="218.0" text="0" textAlignment="CENTER">
+               <font>
+                  <Font size="72.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#onCasaButtonClick" prefHeight="25.0" prefWidth="221.0" text="Casa">
+               <font>
+                  <Font size="36.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="400.0" prefWidth="204.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblOspiti" prefHeight="105.0" prefWidth="243.0" text="0" textAlignment="CENTER">
+               <font>
+                  <Font size="72.0" />
+               </font></Label>
+            <Button mnemonicParsing="false" onAction="#onOspitiButtonClick" prefHeight="25.0" prefWidth="232.0" text="Ospiti">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
