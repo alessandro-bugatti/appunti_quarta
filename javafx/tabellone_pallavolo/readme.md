@@ -16,3 +16,7 @@ Continuare l'esercizio visto in classe per produrre un programma funzionante: se
 
 Si ricorda che si possono aggiungere altre funzionalità/caratteristiche a proprio piacimento, ovviamente coerenti con lo scopo dell'applicazione.
 
+A solo scopo di esempio in questa figura è proposta una possibile interfaccia dell'applicazione con alcune delle funzionalità richieste.
+
+![Esempio di interfaccia del tabellone](tabellone.png)
+
