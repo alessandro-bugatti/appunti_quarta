@@ -1,0 +1,8 @@
+# Come caricare un'immagine in un'applicazione JavaFX
+
+Per caricare un'immagine in un'applicazione bisogna seguire
+una serie di passi:
+
+- nello Scene Builder aggiungere il controllo ImageView che conterrà l'immagine che si intende caricare
+- caricare l'immagine in memoria e inserirla nell'ImageView: il codice per fare questa operazione prevede una serie di passaggi, si rimanda all'esempio in questo progetto per vedere in cosa consiste.
+- a questo punto l'ImageView sarà in grado di mostrare l'immagine, scalandola opportunamente per farla stare al suo interno.
