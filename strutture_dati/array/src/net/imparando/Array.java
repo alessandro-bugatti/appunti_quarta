@@ -22,7 +22,7 @@ public class Array {
 
     public void add(int a){
         if (quanti == dimensione) {
-            dimensione++;
+            dimensione *= 2;
             int temp[] = new int[dimensione];
             for (int i = 0; i < quanti; i++) {
                 temp[i] = v[i];
@@ -46,5 +46,9 @@ public class Array {
 
         }
         return s + "]";
+    }
+
+    public int getDimensione() {
+        return dimensione;
     }
 }

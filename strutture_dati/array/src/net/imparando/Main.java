@@ -10,10 +10,11 @@ public class Main {
         System.out.println(arr);
         arr.add(1000);
         System.out.println(arr);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1050000; i++) {
             arr.add(i+1000);
         }
-        System.out.println(arr);
+        System.out.println(arr.getDimensione());
+        //System.out.println(arr);
 
     }
 }
