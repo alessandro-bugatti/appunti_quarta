@@ -20,20 +20,35 @@ public class Array {
         quanti = 0;
     }
 
+    private void raddoppia(){
+        dimensione *= 2;
+        int temp[] = new int[dimensione];
+        for (int i = 0; i < quanti; i++) {
+            temp[i] = v[i];
+        }
+        v = temp;
+    }
+
+
     public void add(int a){
         if (quanti == dimensione) {
-            dimensione *= 2;
-            int temp[] = new int[dimensione];
-            for (int i = 0; i < quanti; i++) {
-                temp[i] = v[i];
-            }
-            v = temp;
+            raddoppia();
         }
-
         v[quanti] = a;
         quanti++;
     }
 
+    public void addInTesta(int a){
+        if (quanti == dimensione) {
+            raddoppia();
+        }
+        //Sposta gli elementi per far spazio all'inserimento
+        for (int i = quanti; i > 0; i--) {
+            v[i] = v[i - 1];
+        }
+        v[0] = a;
+        quanti++;
+    }
     @Override
     public String toString() {
         String s = "";
@@ -50,5 +65,14 @@ public class Array {
 
     public int getDimensione() {
         return dimensione;
+    }
+
+    /**
+     * Ritorna l'elemento in posizione pos
+     * @param pos
+     * @return
+     */
+    int getItem(int pos){
+        return v[pos];
     }
 }
