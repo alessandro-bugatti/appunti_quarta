@@ -36,12 +36,56 @@ public class Albero {
      * @return Vero se è possibile, falso altrimenti (perchè dove non
      * esiste nell'albero)
      */
-    public boolean aggiungi(int dove, int n){
+    public boolean aggiungiFiglio(int dove, int n){
         Nodo cercato = cercaNodo(root, dove);
         if (cercato == null)
             return false;
         cercato.addFiglio(n);
         quanti++;
         return true;
+    }
+
+    private void visitaAnticipataR(Nodo attuale){
+        System.out.print(attuale.getInfo() + " -> ");
+        Iterator<Nodo> iter = attuale.getIteratoreFigli();
+        while(iter.hasNext()){
+            visitaAnticipataR(iter.next());
+        }
+    }
+
+    public void visitaAnticipata(){
+        visitaAnticipataR(root);
+        System.out.println("end");
+    }
+
+    private void visitaPosticipataR(Nodo attuale){
+        Iterator<Nodo> iter = attuale.getIteratoreFigli();
+        while(iter.hasNext()){
+            visitaPosticipataR(iter.next());
+        }
+        System.out.print(attuale.getInfo() + " -> ");
+    }
+
+    public void visitaPosticipata(){
+        visitaPosticipataR(root);
+        System.out.println("end");
+    }
+
+    public int size(){
+        return quanti;
+    }
+
+    private int sizeR(Nodo attuale){
+        int somma = 1;
+        Iterator<Nodo> iter = attuale.getIteratoreFigli();
+        while(iter.hasNext()){
+            int n = sizeR(iter.next());
+            somma += n;
+        }
+        return somma;
+    }
+
+    public int sizeRicorsiva(){
+        return sizeR(root);
     }
 }
