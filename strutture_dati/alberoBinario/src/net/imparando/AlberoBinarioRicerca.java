@@ -77,4 +77,18 @@ public class AlberoBinarioRicerca {
     public int size(){
         return  quanti;
     }
+
+    private int massimoR(Nodo attuale){
+        if (attuale.getDestro() == null)
+            return attuale.getInfo();
+        return massimoR(attuale.getDestro());
+    }
+
+    public int massimo(){
+        return massimoR(root);
+    }
+
+    public int minimo(){
+
+    }
 }
