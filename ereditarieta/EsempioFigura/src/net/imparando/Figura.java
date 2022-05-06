@@ -37,9 +37,7 @@ public abstract class Figura {
      */
     public abstract float getPerimetro();
 
-    public float getArea(){
-        return 0;
-    }
+    public abstract float getArea();
 
     @Override
     public String toString() {

@@ -15,10 +15,13 @@ public class Main {
         ArrayList<Figura> figure = new ArrayList<>();
         figure.add(c);
         figure.add(r);
+        Quadrato q = new Quadrato(2.3f, 3.4f, "verde", 10.0f);
+        figure.add(q);
         for (Figura f: figure
              ) {
-            System.out.psrintln(f);
-            System.out.println("Perimetro" + f.getPerimetro());
+            System.out.println(f);
+            System.out.println("Perimetro: " + f.getPerimetro());
+            System.out.println("Area: " + f.getArea());
         }
     }
 }

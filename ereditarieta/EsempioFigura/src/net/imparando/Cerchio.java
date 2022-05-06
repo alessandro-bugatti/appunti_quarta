@@ -16,6 +16,11 @@ public class Cerchio extends Figura {
     }
 
     @Override
+    public float getArea() {
+        return (float)(this.raggio*this.raggio*Math.PI);
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 "raggio=" + raggio;

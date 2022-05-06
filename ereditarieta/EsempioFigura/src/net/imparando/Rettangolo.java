@@ -17,6 +17,15 @@ public class Rettangolo extends Figura {
     }
 
     @Override
+    public float getArea() {
+        return this.base * this.altezza;
+    }
+
+    public float getBase(){
+        return base;
+    }
+
+    @Override
     public String toString() {
         return super.toString() +
                 "base=" + this.base +
