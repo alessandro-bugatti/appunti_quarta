@@ -2,11 +2,12 @@ public class Frazione {
     private int numeratore;
     private int denominatore;
 
+    public Frazione(){
+        this.numeratore = this.denominatore = 1;
+    }
     public Frazione(int numeratore, int denominatore){
-        this.numeratore = numeratore;
-        this.denominatore = denominatore;
-        if (this.denominatore == 0)
-            this.denominatore = 1;
+        this.setNumeratore(numeratore);
+        this.setDenominatore(denominatore);
     }
     //Costruttore di copia perchè come paramtero ha un oggetto dello stesso tipo
     public Frazione(Frazione f){
@@ -41,12 +42,42 @@ public class Frazione {
         return denominatore;
     }
 
+    /**
+     * Imposta il valore del denominatore.
+     * Se il valore che si tenta di assegnare fosse 0, verrà
+     * sostituito con il valore 1.
+     * @param denominatore
+     */
     public void setDenominatore(int denominatore) {
         this.denominatore = denominatore;
+        if (this.denominatore == 0)
+            this.denominatore = 1;
     }
 
+    /**
+     * Fa la somma tra due frazioni
+     * @param frazione Il secondo addendo della somma
+     * @return La frazione somma delle due
+     */
     public Frazione somma(Frazione frazione){
-        return null;
+        Frazione risultato = new Frazione();
+        int numeratore = frazione.numeratore * this.getDenominatore() +
+                frazione.denominatore * this.numeratore;
+        int denominatore = frazione.denominatore * this.denominatore;
+        risultato.numeratore = numeratore;
+        risultato.denominatore = denominatore;
+        return risultato;
+
+//        return new Frazione(frazione.numeratore * this.getDenominatore() +
+//                frazione.denominatore * this.numeratore,
+//                frazione.denominatore * this.denominatore );
     }
+
+    //Versione assurda
+//    public Frazione somma(Frazione uno, Frazione due){
+//        return new Frazione(uno.numeratore * due.denominatore +
+//                uno.denominatore * due.numeratore,
+//                uno.denominatore * due.denominatore);
+//    }
 
 }

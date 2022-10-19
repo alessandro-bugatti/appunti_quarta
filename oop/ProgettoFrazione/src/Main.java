@@ -7,6 +7,7 @@ public class Main {
         //Utilizzo del costruttore di copia
         Frazione i = new Frazione(h);
 
+
         //Esempio di utilizzo del metodo toString
         //Se non definito il metodo ritorna una stringa della forma
         //nomeClasse@indirizzo (non è proprio un indirizzo...)
@@ -16,5 +17,11 @@ public class Main {
 
         //Esempio di utilizzo dei metodi getter
         int somma = f.getNumeratore() + g.getNumeratore();
+
+        //Esempio di utilizzo della somma
+        Frazione totale = f.somma(g);
+        //Frazione totale2 = i.somma(f, g); Versione assurda, poichè i non serve
+        System.out.println(totale);
+
     }
 }
