@@ -23,5 +23,10 @@ public class Main {
         //Frazione totale2 = i.somma(f, g); Versione assurda, poichè i non serve
         System.out.println(totale);
 
+        //Esempio che usa la versione con semplificazione
+        f = new Frazione(2, 3);
+        g = new Frazione(4, 3);
+        totale = f.somma(g);
+        System.out.println(totale);
     }
 }

@@ -59,7 +59,25 @@ public class Frazione {
      */
     private void semplifica()
     {
-        for (int i = 2; i <= this.numeratore ; i++) {
+        boolean negativo = false;
+        if (this.numeratore * this.denominatore > 0)
+        {
+            if (this.numeratore < 0){
+                this.numeratore = -this.numeratore;
+                this.denominatore = - this.denominatore;
+            }
+        }
+        else {
+            negativo = true;
+            if (this.numeratore < 0)
+                this.numeratore = -this.numeratore;
+            if (this.denominatore < 0)
+                this.denominatore = - this.denominatore;
+        }
+        int minimo = this.numeratore;
+        if (this.denominatore < minimo)
+            minimo = this.denominatore;
+        for (int i = minimo; i > 1; i--) {
             if (this.numeratore %i == 0 &&
                 this.denominatore % i == 0)
             {
@@ -67,6 +85,8 @@ public class Frazione {
                 this.denominatore /= i;
             }
         }
+        if (negativo)
+            this.numeratore = -this.numeratore;
     }
 
     /**
