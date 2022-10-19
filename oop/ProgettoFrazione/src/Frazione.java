@@ -55,6 +55,21 @@ public class Frazione {
     }
 
     /**
+     * Semplifica una frazione ai minimi termini
+     */
+    private void semplifica()
+    {
+        for (int i = 2; i <= this.numeratore ; i++) {
+            if (this.numeratore %i == 0 &&
+                this.denominatore % i == 0)
+            {
+                this.numeratore /= i;
+                this.denominatore /= i;
+            }
+        }
+    }
+
+    /**
      * Fa la somma tra due frazioni
      * @param frazione Il secondo addendo della somma
      * @return La frazione somma delle due
@@ -66,6 +81,7 @@ public class Frazione {
         int denominatore = frazione.denominatore * this.denominatore;
         risultato.numeratore = numeratore;
         risultato.denominatore = denominatore;
+        risultato.semplifica();
         return risultato;
 
 //        return new Frazione(frazione.numeratore * this.getDenominatore() +
