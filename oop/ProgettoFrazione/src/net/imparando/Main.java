@@ -1,3 +1,5 @@
+package net.imparando;
+
 public class Main {
     public static void main(String[] args) {
         Frazione f, g, h;
@@ -20,7 +22,7 @@ public class Main {
 
         //Esempio di utilizzo della somma
         Frazione totale = f.somma(g);
-        //Frazione totale2 = i.somma(f, g); Versione assurda, poichè i non serve
+        //net.imparando.Frazione totale2 = i.somma(f, g); Versione assurda, poichè i non serve
         System.out.println(totale);
 
         //Esempio che usa la versione con semplificazione

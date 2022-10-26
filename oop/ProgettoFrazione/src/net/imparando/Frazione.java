@@ -1,3 +1,5 @@
+package net.imparando;
+
 public class Frazione {
     private int numeratore;
     private int denominatore;
@@ -23,7 +25,7 @@ public class Frazione {
 
     @Override
     public String toString() {
-        /*return "Frazione{" +
+        /*return "net.imparando.Frazione{" +
                 "numeratore=" + numeratore +
                 ", denominatore=" + denominatore +
                 '}';*/
@@ -104,14 +106,14 @@ public class Frazione {
         risultato.semplifica();
         return risultato;
 
-//        return new Frazione(frazione.numeratore * this.getDenominatore() +
+//        return new net.imparando.Frazione(frazione.numeratore * this.getDenominatore() +
 //                frazione.denominatore * this.numeratore,
 //                frazione.denominatore * this.denominatore );
     }
 
     //Versione assurda
-//    public Frazione somma(Frazione uno, Frazione due){
-//        return new Frazione(uno.numeratore * due.denominatore +
+//    public net.imparando.Frazione somma(net.imparando.Frazione uno, net.imparando.Frazione due){
+//        return new net.imparando.Frazione(uno.numeratore * due.denominatore +
 //                uno.denominatore * due.numeratore,
 //                uno.denominatore * due.denominatore);
 //    }
