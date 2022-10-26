@@ -15,10 +15,11 @@ public class ContoCorrente {
      * Metodo che permette di prelevare una certa quantità
      * di denaro
      * @param prelievo Quantità prelevata
-     * @return saldo corrente
+     * @return Saldo corrente
      */
     public float preleva(float prelievo){
-        this.saldo -= prelievo;
+        if (prelievo <= this.saldo)
+            this.saldo -= prelievo;
         return this.saldo;
     }
 
