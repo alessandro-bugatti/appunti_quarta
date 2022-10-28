@@ -1,11 +1,13 @@
 package net.imparando;
 
 public class ContoCorrente {
+    private int numeroConto;
     private String nome;
     private String cognome;
     private float saldo;
 
-    public ContoCorrente(String nome, String cognome) {
+    public ContoCorrente(int numeroConto, String nome, String cognome) {
+        this.numeroConto = numeroConto;
         this.nome = nome;
         this.cognome = cognome;
         this.saldo = 0;
@@ -31,6 +33,14 @@ public class ContoCorrente {
     public float deposita(float deposito){
         this.saldo += deposito;
         return this.saldo;
+    }
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public int getNumeroConto() {
+        return numeroConto;
     }
 
     @Override
