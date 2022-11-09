@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Movimento {
     private String descrizione;
+
     private float importo;
     private LocalDateTime data;
 
@@ -17,6 +18,11 @@ public class Movimento {
         this.descrizione = descrizione;
         this.importo = importo;
         this.data = LocalDateTime.now();
+    }
+
+
+    public float getImporto() {
+        return importo;
     }
 
     @Override

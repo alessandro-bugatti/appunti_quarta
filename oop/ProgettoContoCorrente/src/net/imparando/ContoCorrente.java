@@ -29,12 +29,22 @@ public class ContoCorrente {
         return numeroConto;
     }
 
+
+    public float getSaldo() {
+        return saldo;
+    }
+
     @Override
     public String toString() {
-        return "net.imparando.ContoCorrente{" +
-                "nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", saldo=" + saldo +
-                '}';
+        return "Numero conto: " + numeroConto + ", " + nome +
+                ", " + cognome +
+                " saldo = " + saldo;
+    }
+
+    public void aggiungiMovimento(Movimento m){
+        //if se volessimo controllare di non sforare il vettore
+        movimenti[n_movimenti] = m;
+        n_movimenti++;
+        saldo += m.getImporto();
     }
 }

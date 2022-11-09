@@ -21,9 +21,29 @@ public class Banca {
     }
 
     public ContoCorrente[] ricercaPerCognome(String cognome){
+        int quanti = 0;
         for (int i = 0; i < n_conti; i++){
             if (cognome.equals(conti[i].getCognome())){
+                quanti++;
+            }
+        }
+        if (quanti == 0)
+            return null;
+        ContoCorrente[] c = new ContoCorrente[quanti];
+        int k = 0;
+        for (int i = 0; i < n_conti; i++){
+            if (cognome.equals(conti[i].getCognome())){
+                c[k] = conti[i];
+                k++;
+            }
+        }
+        return c;
+    }
 
+    public ContoCorrente ricercaPerNumeroConto(int numero){
+        for (int i = 0; i < n_conti; i++){
+            if (conti[i].getNumeroConto() == numero){
+                return conti[i];
             }
         }
         return null;
