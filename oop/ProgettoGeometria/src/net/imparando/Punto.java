@@ -1,12 +1,18 @@
 package net.imparando;
 
+import graphics.Ellipse;
+
 public class Punto {
     private double x;
     private double y;
 
+    private Ellipse e;
+
     public Punto(double x, double y) {
         this.x = x;
         this.y = y;
+        e = new Ellipse(x, y, 4,4);
+
     }
 
     public double distanza(Punto a){
@@ -35,5 +41,17 @@ public class Punto {
         return "(" + x +
                 ", " + y +
                 ")";
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void disegna(){
+        e.draw();
     }
 }

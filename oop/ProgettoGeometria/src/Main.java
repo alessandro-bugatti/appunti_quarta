@@ -1,4 +1,5 @@
 import net.imparando.Punto;
+import net.imparando.Segmento;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,8 +17,16 @@ public class Main {
         System.out.println("Punto b: " + b);
         System.out.println("Distanza tra a e b: " + a.distanza(b));
 
-        a = new Punto(1,1);
+        a = new Punto(200,200);
         System.out.println("Distanza tra a  e l'origine: " + a.distanzaOrigine());
 
+        Segmento s = new Segmento(a ,b);
+        s.disegna();
+        a = new Punto(50, 100);
+        a.disegna();
+
+        graphics.Canvas.pause();
+        a = new Punto(100, 200);
+        a.disegna();
     }
 }
