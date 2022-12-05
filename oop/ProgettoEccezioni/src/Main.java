@@ -46,7 +46,7 @@ public class Main {
         //Le eccezioni unchecked in generale non si intercettano,
         //anche se si può fare,
         //se capitano il programma crolla e si interviene
-        Integer a;
+        /*Integer a;
         a = 12;
         a = null;
         try {
@@ -62,7 +62,7 @@ public class Main {
             if (v[i] > v[i+1]){ //Genera un OutOfBoundException
                 System.out.println("Fai qualcosa");
             }
-        }
+        }*/
         //La classe Scanner può generare un InputMismatchException
         //che è sempre di tipo unchecked, ma che può aver senso intercettare
         //anche se va valutato
@@ -80,10 +80,14 @@ public class Main {
         //che è di tipo checked e quindi DEVE essere intercettata
         //altrimenti il programma non compila
         BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+
         try {
             String s = buf.readLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        //int c = 7 / 0;
+
     }
 }
