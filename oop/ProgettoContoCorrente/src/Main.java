@@ -47,7 +47,7 @@ public class Main {
         return null;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
        Banca b = new Banca();
        datiStub(b);
        Scanner in = new Scanner(System.in);
@@ -67,7 +67,17 @@ public class Main {
                    System.out.println("Inserisci la cifra da prelevare: ");
                    float cifra = in.nextFloat();
                    Movimento m = new Movimento("Prelievo", -cifra);
-                   c.aggiungiMovimento(m);
+                   try {
+                       c.aggiungiMovimento(m);
+                   } catch (SaldoNegativoException e) {
+                       if (e.getImporto() > -100){
+                           //Fai qualcosa
+                       }
+                       //Hai sforato troppo
+                       else{
+                           //fai qualcos'altro
+                       }
+                   }
                    break;
                case 2:
                    c = ricercaConto(b);
@@ -78,8 +88,12 @@ public class Main {
                    System.out.println("Inserisci la cifra da depositare: ");
                    cifra = in.nextFloat();
                    m = new Movimento("Prelievo", cifra);
-                   c.aggiungiMovimento(m);
-                break;
+                   try {
+                       c.aggiungiMovimento(m);
+                   } catch (SaldoNegativoException e) {
+                       throw new RuntimeException(e);
+                   }
+                   break;
                case 3:
                    c = ricercaConto(b);
                    if (c == null){

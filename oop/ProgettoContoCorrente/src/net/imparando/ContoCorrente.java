@@ -41,10 +41,13 @@ public class ContoCorrente {
                 " saldo = " + saldo;
     }
 
-    public void aggiungiMovimento(Movimento m){
+    public void aggiungiMovimento(Movimento m) throws SaldoNegativoException {
         //if se volessimo controllare di non sforare il vettore
         movimenti[n_movimenti] = m;
         n_movimenti++;
         saldo += m.getImporto();
+        if (saldo < 0){
+            throw new SaldoNegativoException(saldo);
+        }
     }
 }
