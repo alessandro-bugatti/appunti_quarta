@@ -2,6 +2,15 @@ import net.imparando.*;
 
 import java.util.Scanner;
 
+/**
+ * La policy per il saldo negativo è la seguente:
+ * se il saldo è negativo ma sotto i 500 euro
+ * il conto continua a essere funzionante
+ * se invece si scende sotto i 500 euro di saldo
+ * negativo, il conto viene bloccato e non è più possibile
+ * prelevare fino a quanto non viene riportato a un
+ * valore >= 0
+ */
 public class Main {
     static void datiStub(Banca b){
         b.creaConto("Piero", "Paletti");
