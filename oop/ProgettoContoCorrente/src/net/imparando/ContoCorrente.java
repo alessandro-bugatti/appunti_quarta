@@ -6,6 +6,8 @@ public class ContoCorrente {
     private String cognome;
     private float saldo;
 
+    private boolean bloccato;
+
     private Movimento[] movimenti;
 
     private int n_movimenti;
@@ -19,6 +21,7 @@ public class ContoCorrente {
         this.saldo = 0;
         this.movimenti = new Movimento[MAX_MOVIMENTI];
         this.n_movimenti = 0;
+        this.bloccato = false;
     }
 
     public String getCognome() {
