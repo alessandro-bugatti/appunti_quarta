@@ -86,6 +86,8 @@ public class Main {
                        else{
                            //fai qualcos'altro
                        }
+                   } catch (ContoBloccatoException e) {
+                       throw new RuntimeException(e);
                    }
                    break;
                case 2:
@@ -100,6 +102,8 @@ public class Main {
                    try {
                        c.aggiungiMovimento(m);
                    } catch (SaldoNegativoException e) {
+                       throw new RuntimeException(e);
+                   } catch (ContoBloccatoException e) {
                        throw new RuntimeException(e);
                    }
                    break;

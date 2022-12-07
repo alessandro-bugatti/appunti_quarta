@@ -44,7 +44,13 @@ public class ContoCorrente {
                 " saldo = " + saldo;
     }
 
-    public void aggiungiMovimento(Movimento m) throws SaldoNegativoException {
+    public void aggiungiMovimento(Movimento m) throws SaldoNegativoException, ContoBloccatoException {
+        if (m.getImporto() < 0 && this.bloccato)
+        {
+            movimenti[n_movimenti] = m;
+            n_movimenti++;
+            throw new ContoBloccatoException();
+        }
         //if se volessimo controllare di non sforare il vettore
         movimenti[n_movimenti] = m;
         n_movimenti++;
