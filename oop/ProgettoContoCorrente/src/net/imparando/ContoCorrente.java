@@ -52,6 +52,7 @@ public class ContoCorrente {
             throw new ContoBloccatoException();
         }
         //if se volessimo controllare di non sforare il vettore
+        m.setBuonFine();
         movimenti[n_movimenti] = m;
         n_movimenti++;
         saldo += m.getImporto();

@@ -8,6 +8,8 @@ public class Movimento {
     private float importo;
     private LocalDateTime data;
 
+    private boolean buonFine;
+
     public Movimento(String descrizione, float importo, LocalDateTime data) {
         this.descrizione = descrizione;
         this.importo = importo;
@@ -23,6 +25,14 @@ public class Movimento {
 
     public float getImporto() {
         return importo;
+    }
+
+    public boolean valido(){
+        return buonFine;
+    }
+
+    public void setBuonFine(){
+        this.buonFine = true;
     }
 
     @Override

@@ -79,13 +79,8 @@ public class Main {
                    try {
                        c.aggiungiMovimento(m);
                    } catch (SaldoNegativoException e) {
-                       if (e.getImporto() > -100){
-                           //Fai qualcosa
-                       }
-                       //Hai sforato troppo
-                       else{
-                           //fai qualcos'altro
-                       }
+                       System.out.println("Attenzione: il saldo è negativo e hai uno scoperto di " +
+                               c.getSaldo() + ". Se scenderai sotto i 500 euro il conto verrà bloccato.");
                    } catch (ContoBloccatoException e) {
                        throw new RuntimeException(e);
                    }
