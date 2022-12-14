@@ -2,6 +2,15 @@ import net.imparando.*;
 
 import java.util.Scanner;
 
+/**
+ * La policy per il saldo negativo è la seguente:
+ * se il saldo è negativo ma sotto i 500 euro
+ * il conto continua a essere funzionante
+ * se invece si scende sotto i 500 euro di saldo
+ * negativo, il conto viene bloccato e non è più possibile
+ * prelevare fino a quanto non viene riportato a un
+ * valore >= 0
+ */
 public class Main {
     static void datiStub(Banca b){
         b.creaConto("Piero", "Paletti");
@@ -70,13 +79,10 @@ public class Main {
                    try {
                        c.aggiungiMovimento(m);
                    } catch (SaldoNegativoException e) {
-                       if (e.getImporto() > -100){
-                           //Fai qualcosa
-                       }
-                       //Hai sforato troppo
-                       else{
-                           //fai qualcos'altro
-                       }
+                       System.out.println("Attenzione: il saldo è negativo e hai uno scoperto di " +
+                               c.getSaldo() + ". Se scenderai sotto i 500 euro il conto verrà bloccato.");
+                   } catch (ContoBloccatoException e) {
+                       throw new RuntimeException(e);
                    }
                    break;
                case 2:
@@ -91,6 +97,8 @@ public class Main {
                    try {
                        c.aggiungiMovimento(m);
                    } catch (SaldoNegativoException e) {
+                       throw new RuntimeException(e);
+                   } catch (ContoBloccatoException e) {
                        throw new RuntimeException(e);
                    }
                    break;

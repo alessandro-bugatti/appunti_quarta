@@ -6,6 +6,8 @@ public class ContoCorrente {
     private String cognome;
     private float saldo;
 
+    private boolean bloccato;
+
     private Movimento[] movimenti;
 
     private int n_movimenti;
@@ -19,6 +21,7 @@ public class ContoCorrente {
         this.saldo = 0;
         this.movimenti = new Movimento[MAX_MOVIMENTI];
         this.n_movimenti = 0;
+        this.bloccato = false;
     }
 
     public String getCognome() {
@@ -41,8 +44,15 @@ public class ContoCorrente {
                 " saldo = " + saldo;
     }
 
-    public void aggiungiMovimento(Movimento m) throws SaldoNegativoException {
+    public void aggiungiMovimento(Movimento m) throws SaldoNegativoException, ContoBloccatoException {
+        if (m.getImporto() < 0 && this.bloccato)
+        {
+            movimenti[n_movimenti] = m;
+            n_movimenti++;
+            throw new ContoBloccatoException();
+        }
         //if se volessimo controllare di non sforare il vettore
+        m.setBuonFine();
         movimenti[n_movimenti] = m;
         n_movimenti++;
         saldo += m.getImporto();
