@@ -1,8 +1,9 @@
 package net.imparando;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Movimento {
+public class Movimento implements Serializable {
     private String descrizione;
 
     private float importo;

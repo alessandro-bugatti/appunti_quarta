@@ -1,5 +1,6 @@
 import net.imparando.*;
 
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -22,6 +23,7 @@ public class Main {
         System.out.println("1 - Prelievo");
         System.out.println("2 - Deposito");
         System.out.println("3 - Saldo");
+        System.out.println("4 - Crea conto");
         System.out.println("0 - Esci");
     }
 
@@ -56,9 +58,24 @@ public class Main {
         return null;
     }
 
-    public static void main(String[] args)  {
-       Banca b = new Banca();
-       datiStub(b);
+    public static void main(String[] argomenti)  {
+        //Deserializzazione dei dati eventualmente serializzati
+        Banca b;
+        ObjectInputStream objIn = null;
+        try {
+            objIn = new ObjectInputStream(
+                    new FileInputStream("banca.bin"));
+            b = (Banca)objIn.readObject();
+            objIn.close();
+        } catch (IOException e) {
+            b = new Banca();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+       //datiStub(b);
        Scanner in = new Scanner(System.in);
        int scelta;
        menu();
@@ -111,6 +128,12 @@ public class Main {
                        System.out.println(c);
                    }
                    break;
+               case 4:
+                   System.out.println("Inserisci nome e cognome: ");
+                   String nome = in.next();
+                   String cognome = in.next();
+                   b.creaConto(nome, cognome);
+                   break;
                default:
                    System.out.println("Scelta non valida");
            }
@@ -118,6 +141,19 @@ public class Main {
            System.out.println("Operazione? ");
            scelta = in.nextInt();
        }
+       //Serializzazione
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(
+                    new FileOutputStream("banca.bin")
+            );
+            out.writeObject(b);
+            out.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
         System.out.println("Chiusura cassa");
     }
 }

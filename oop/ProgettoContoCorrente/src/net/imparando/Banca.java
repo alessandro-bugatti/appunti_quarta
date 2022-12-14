@@ -1,6 +1,8 @@
 package net.imparando;
 
-public class Banca {
+import java.io.Serializable;
+
+public class Banca implements Serializable {
     private final static int MAX_CONTI = 100;
     private ContoCorrente[] conti;
     private int n_conti;
