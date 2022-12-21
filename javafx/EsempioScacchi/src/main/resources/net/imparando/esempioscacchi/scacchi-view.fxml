@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vboxBoard" alignment="CENTER" prefHeight="314.0" prefWidth="364.0" spacing="2.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="net.imparando.esempioscacchi.ScacchiController">
+
+    <Label fx:id="welcomeText" prefHeight="35.0" prefWidth="91.0" text="Scacchi">
+      <font>
+         <Font size="24.0" />
+      </font></Label>
+</VBox>
