@@ -17,7 +17,7 @@ public class NotificheController {
 
         //Parte che genera la notifica
         //Obtain only one instance of the SystemTray object
-         tray = SystemTray.getSystemTray();
+        tray = SystemTray.getSystemTray();
 
         //If the icon is a file
         Image image = Toolkit.getDefaultToolkit().createImage("icon.png");
@@ -35,6 +35,7 @@ public class NotificheController {
     }
 
     public void onShutDown(){
+        //Prima di uscire rimuove le notifiche eventualmente rimaste
         TrayIcon[] icons = tray.getTrayIcons();
         for (TrayIcon t: icons) {
             tray.remove(t);
