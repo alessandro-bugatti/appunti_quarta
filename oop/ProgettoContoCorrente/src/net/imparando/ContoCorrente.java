@@ -1,6 +1,7 @@
 package net.imparando;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ContoCorrente implements Serializable {
     private int numeroConto;
@@ -10,19 +11,13 @@ public class ContoCorrente implements Serializable {
 
     private boolean bloccato;
 
-    private Movimento[] movimenti;
-
-    private int n_movimenti;
-
-    private static final int MAX_MOVIMENTI = 100;
-
+    private ArrayList<Movimento> movimenti;
     public ContoCorrente(int numeroConto, String nome, String cognome) {
         this.numeroConto = numeroConto;
         this.nome = nome;
         this.cognome = cognome;
         this.saldo = 0;
-        this.movimenti = new Movimento[MAX_MOVIMENTI];
-        this.n_movimenti = 0;
+        this.movimenti = new ArrayList<>();
         this.bloccato = false;
     }
 
@@ -41,24 +36,27 @@ public class ContoCorrente implements Serializable {
 
     @Override
     public String toString() {
-        return "Numero conto: " + numeroConto + ", " + nome +
+        String s =  "Numero conto: " + numeroConto + ", " + nome +
                 ", " + cognome +
-                " saldo = " + saldo;
+                " saldo = " + saldo + "\n";
+        for (Movimento m: movimenti) {
+            s += m + "\n";
+        }
+        return s;
     }
 
     public void aggiungiMovimento(Movimento m) throws SaldoNegativoException, ContoBloccatoException {
         if (m.getImporto() < 0 && this.bloccato)
         {
-            movimenti[n_movimenti] = m;
-            n_movimenti++;
+            movimenti.add(m);
             throw new ContoBloccatoException();
         }
-        //if se volessimo controllare di non sforare il vettore
         m.setBuonFine();
-        movimenti[n_movimenti] = m;
-        n_movimenti++;
+        movimenti.add(m);
         saldo += m.getImporto();
         if (saldo < 0){
+            if (saldo < -500)
+                this.bloccato = true;
             throw new SaldoNegativoException(saldo);
         }
     }

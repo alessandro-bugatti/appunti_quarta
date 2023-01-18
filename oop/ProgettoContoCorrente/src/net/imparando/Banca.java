@@ -1,51 +1,47 @@
 package net.imparando;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Banca implements Serializable {
-    private final static int MAX_CONTI = 100;
-    private ContoCorrente[] conti;
-    private int n_conti;
+    ArrayList<ContoCorrente> conti;
+
+    private int generaNuovoNumeroConto(){
+        return conti.size() + 1;
+    }
     public Banca(){
-        conti = new ContoCorrente[MAX_CONTI];
-        n_conti = 0;
+        conti = new ArrayList<>();
     }
 
     public boolean creaConto(String nome, String cognome){
-        ContoCorrente c = new ContoCorrente(n_conti + 1, nome, cognome);
-        conti[n_conti] = c;
-        n_conti++;
+        ContoCorrente c = new ContoCorrente(generaNuovoNumeroConto(), nome, cognome);
+        conti.add(c);
         return true;
     }
 
     public int numeroConti(){
-        return n_conti;
+        return conti.size();
     }
 
+
     public ContoCorrente[] ricercaPerCognome(String cognome){
-        int quanti = 0;
-        for (int i = 0; i < n_conti; i++){
-            if (cognome.equals(conti[i].getCognome())){
-                quanti++;
+        ArrayList<ContoCorrente> trovati;
+        trovati = new ArrayList<>();
+        for (ContoCorrente c: conti){
+            if (cognome.equals(c.getCognome())){
+                trovati.add(c);
             }
         }
-        if (quanti == 0)
-            return null;
-        ContoCorrente[] c = new ContoCorrente[quanti];
-        int k = 0;
-        for (int i = 0; i < n_conti; i++){
-            if (cognome.equals(conti[i].getCognome())){
-                c[k] = conti[i];
-                k++;
-            }
-        }
-        return c;
+        if (trovati.isEmpty()) return null;
+        ContoCorrente[] ritornati;
+        ritornati = new ContoCorrente[1];
+        return trovati.toArray(ritornati);
     }
 
     public ContoCorrente ricercaPerNumeroConto(int numero){
-        for (int i = 0; i < n_conti; i++){
-            if (conti[i].getNumeroConto() == numero){
-                return conti[i];
+        for (ContoCorrente c: conti){
+            if (c.getNumeroConto() == numero){
+                return c;
             }
         }
         return null;
