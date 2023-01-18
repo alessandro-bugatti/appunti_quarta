@@ -58,7 +58,7 @@ public class Main {
         return null;
     }
 
-    public static void main(String[] argomenti)  {
+    public static void main(String[] argomenti) throws IOException {
         //Deserializzazione dei dati eventualmente serializzati
         Banca b;
         ObjectInputStream objIn = null;
@@ -108,9 +108,13 @@ public class Main {
                        System.out.println("Conto non valido");
                        break;
                    }
+                   BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+                   String descrizione;
+                   System.out.println("Inserisci la descrizione: ");
+                   descrizione = bf.readLine();
                    System.out.println("Inserisci la cifra da depositare: ");
                    cifra = in.nextFloat();
-                   m = new Movimento("Prelievo", cifra);
+                   m = new Movimento(descrizione, cifra);
                    try {
                        c.aggiungiMovimento(m);
                    } catch (SaldoNegativoException e) {
