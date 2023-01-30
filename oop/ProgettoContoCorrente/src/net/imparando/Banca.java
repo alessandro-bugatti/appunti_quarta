@@ -2,20 +2,31 @@ package net.imparando;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Banca implements Serializable {
     ArrayList<ContoCorrente> conti;
+    HashMap<String, ArrayList<ContoCorrente> > mappaCognome;
 
     private int generaNuovoNumeroConto(){
         return conti.size() + 1;
     }
     public Banca(){
         conti = new ArrayList<>();
+        mappaCognome = new HashMap<>();
     }
 
     public boolean creaConto(String nome, String cognome){
         ContoCorrente c = new ContoCorrente(generaNuovoNumeroConto(), nome, cognome);
         conti.add(c);
+        if (mappaCognome.containsKey(c.getCognome())){
+            mappaCognome.get(c.getCognome()).add(c);
+        }
+        else{
+            ArrayList<ContoCorrente> al = new ArrayList<>();
+            al.add(c);
+            mappaCognome.put(c.getCognome(), al);
+        }
         return true;
     }
 
@@ -26,12 +37,7 @@ public class Banca implements Serializable {
 
     public ContoCorrente[] ricercaPerCognome(String cognome){
         ArrayList<ContoCorrente> trovati;
-        trovati = new ArrayList<>();
-        for (ContoCorrente c: conti){
-            if (cognome.equals(c.getCognome())){
-                trovati.add(c);
-            }
-        }
+        trovati = mappaCognome.get(cognome);
         if (trovati.isEmpty()) return null;
         ContoCorrente[] ritornati;
         ritornati = new ContoCorrente[1];
