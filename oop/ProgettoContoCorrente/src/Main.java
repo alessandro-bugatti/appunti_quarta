@@ -75,7 +75,8 @@ public class Main {
 
 
 
-       //datiStub(b);
+       datiStub(b);
+       System.out.println(b);
        Scanner in = new Scanner(System.in);
        int scelta;
        menu();
@@ -138,6 +139,8 @@ public class Main {
                    String cognome = in.next();
                    b.creaConto(nome, cognome);
                    break;
+               case 5:
+                   System.out.println(b);
                default:
                    System.out.println("Scelta non valida");
            }
