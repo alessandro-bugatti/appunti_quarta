@@ -3,7 +3,7 @@ package net.imparando;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ContoCorrente implements Serializable {
+public class ContoCorrente implements Serializable, Comparable {
     private int numeroConto;
     private String nome;
     private String cognome;
@@ -59,5 +59,34 @@ public class ContoCorrente implements Serializable {
                 this.bloccato = true;
             throw new SaldoNegativoException(saldo);
         }
+    }
+
+    /**
+     * Confronta il conto corrente this con quello passato
+     * @param o the object to be compared.
+     * @return 1 se this è maggiore di o
+     * -1 se this è minore di o
+     * o se hanno lo stesso nome e cognome
+     */
+    @Override
+    public int compareTo(Object o) {
+        /*String cognome = ((ContoCorrente)o).cognome;
+        String nome = ((ContoCorrente)o).nome;
+        if (this.cognome.compareTo(cognome) > 0)
+            return 1;
+        else if (this.cognome.compareTo(cognome) < 0)
+            return -1;
+        else{
+            if (this.nome.compareTo(nome) > 0)
+                return 1;
+            if (this.nome.compareTo(nome) < 0)
+                return -1;
+        }
+        return 0;*/
+        String cognome = ((ContoCorrente)o).cognome;
+        String nome = ((ContoCorrente)o).nome;
+        String contoPassato = cognome + nome;
+        String contoThis = this.cognome + this.nome;
+        return contoThis.compareTo(contoPassato);
     }
 }

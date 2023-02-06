@@ -2,6 +2,7 @@ package net.imparando;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Banca implements Serializable {
@@ -51,5 +52,11 @@ public class Banca implements Serializable {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        Collections.sort(conti);
+        return conti.toString();
     }
 }
