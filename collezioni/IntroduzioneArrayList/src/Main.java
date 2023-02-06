@@ -1,6 +1,17 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+class Matematica{
+    static int somma(int v[]){
+        int totale = 0;
+        for (int i = 0; i < v.length; i++) {
+            totale += v[i];
+        }
+        return totale;
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +20,9 @@ public class Main {
         //Metodo add
         valori.add(12);
         valori.add(27);
+        valori.add(1, 13);
         System.out.println(valori);
+        //valori.add(4, 34); lancerebbe un'eccezione
         //Metodo addAll
         ArrayList <Integer> valori2;
         valori2 = new ArrayList<>();
@@ -54,6 +67,20 @@ public class Main {
              valori) {
             somma += valore;
         }
+
+        ArrayList<Integer> al1 = new ArrayList<>(Arrays.asList(1,2,3));
+        ArrayList<Integer> al2 = new ArrayList<>(Arrays.asList(4,5,6));
+        System.out.println(al1.size());
+        System.out.println(al1.isEmpty());
+        System.out.println(al1.contains(2));
+        System.out.println(al1.contains(4));
+
+        al1.addAll(al2);
+        System.out.println(al1);
+
+        al1.set(4,99);
+        System.out.println("al1 -> " + al1);
+        System.out.println("al2 -> " +al2);
 
         //Classe LinkedList
 
@@ -105,5 +132,7 @@ public class Main {
             s += ll.get((int)(Math.random()*1000000));
         }
         System.out.println(s);
+
+
     }
 }
