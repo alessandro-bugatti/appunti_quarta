@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 
 public class Main {
@@ -25,5 +27,49 @@ public class Main {
              rubrica.keySet()) {
             System.out.println(s);
         }
+
+        //Esercizio 1
+        HashMap<String, String> biblioteca1 = new HashMap<>();
+        HashMap<String, String> biblioteca2 = new HashMap<>();
+        biblioteca1.put("987666657", "L'isola del tesoro");
+        biblioteca1.put("987666659", "Il signore delle mosche");
+        biblioteca2.put("987666659", "Il signore degli anelli");
+        biblioteca2.putAll(biblioteca1);
+        System.out.println(biblioteca2);
+
+        HashMap<String, String> storia = new HashMap<>();
+        storia.put("17-03-1861", "Proclamazione di Vittorio Emanuele II come Re d'Italia");
+        storia.put("20-07-1969", "Primo uomo sulla Luna");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Inserisci una data nel formato gg-mm-aaaa: ");
+        String data = in.next();
+        String evento = storia.get(data);
+        if (evento == null)
+            System.out.println("Non esiste l'evento richiesto");
+        else
+            System.out.println(evento);
+
+        HashMap<String, String> ristoranti = new HashMap<>();
+        ristoranti.put("Il cavallino dorato", "Gianfranco Peronisi");
+        ristoranti.put("La vecchia locanda", "Arturo Mestolini");
+        for (String ristorante: ristoranti.keySet()){
+            System.out.println(ristorante);
+        }
+        //Prima possilità
+        for (String capocuoco : ristoranti.values()){
+            System.out.println(capocuoco);
+        }
+        //Seconda possibilità
+        for (String ristorante: ristoranti.keySet()){
+            System.out.println(ristoranti.get(ristorante));
+        }
+
+        System.out.println(ristoranti);
+
+        for(Map.Entry<String, String> coppia:ristoranti.entrySet()){
+            System.out.println(coppia);
+            System.out.println(coppia.getKey() + " -> " + coppia.getValue());
+        }
+
     }
 }
