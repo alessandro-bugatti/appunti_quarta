@@ -34,4 +34,22 @@ public class MyArrayList {
         n_items++;
         return true;
     }
+
+    /**
+     * Ritorna il numero di elementi nella lista
+     * @return il numero di elementi nella lista
+     */
+    public int size(){
+        return n_items;
+    }
+
+    /**
+     * Ritorna l'elemento nella posizione specificata
+     * @param pos L'indice dell'elemento da ritornare
+     * @return l'elemento nella posizione specificata
+     */
+    public int get(int pos){
+        /*TODO da controllare l'uscita dal vettore*/
+        return v[pos];
+    }
 }
