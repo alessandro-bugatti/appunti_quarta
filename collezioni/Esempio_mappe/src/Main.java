@@ -22,6 +22,8 @@ public class Main {
         for (int i = 0; i < rubrica.size(); i++) {
             System.out.println(rubrica.get(i));
         }
+        System.out.println("Rimozione: "  + rubrica.remove("Giorgio"));
+        System.out.println("Chiave non presente: "  + rubrica.remove("Piero"));
         //Si fa in questo modo
         for (String s:
              rubrica.keySet()) {
