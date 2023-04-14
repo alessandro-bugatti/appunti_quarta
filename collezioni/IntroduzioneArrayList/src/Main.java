@@ -60,6 +60,12 @@ public class Main {
             int temp = i.next();
             somma += temp;
         }
+        i = valori.iterator();
+        while(i.hasNext()){
+            int temp = i.next();
+            System.out.println(i);
+        }
+
         System.out.println(somma);
         somma = 0;
         //Metodo con foreach
@@ -68,6 +74,17 @@ public class Main {
             somma += valore;
         }
 
+        /*
+        Non si può modificare una lista in un foreach
+        ArrayList<String> als = new ArrayList<>();
+        als.add("uno");
+        als.add("due");
+        for(String s : als){
+            if (s.equals("due"))
+                als.remove("due");
+        }
+        System.out.println(als);
+        */
         ArrayList<Integer> al1 = new ArrayList<>(Arrays.asList(1,2,3));
         ArrayList<Integer> al2 = new ArrayList<>(Arrays.asList(4,5,6));
         System.out.println(al1.size());
