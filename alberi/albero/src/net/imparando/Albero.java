@@ -102,13 +102,14 @@ public class Albero {
             return p;
         Iterator <Nodo> i = nodo.getIteratoreFigli();
         while (i.hasNext()){
-
-            profonditaR(i.next(),num, p+1);
+            int temp = profonditaR(i.next(),num, p+1);
+            if (temp != -1)
+                return temp;
         }
-
+        return -1;
     }
     public int profondita(int n){
-        return profonditaR(root,n);
+        return profonditaR(root,n, 0);
     }
 
 }

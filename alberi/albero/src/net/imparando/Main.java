@@ -21,5 +21,9 @@ public class Main {
         a.visitaPosticipata();
         System.out.println("Valore massimo nell'albero:");
         System.out.println(a.massimo());
+        System.out.println("Profondità di 17:");
+        System.out.println(a.profondita(17));
+        System.out.println("Profondità di 71:");
+        System.out.println(a.profondita(71));
     }
 }
