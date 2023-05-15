@@ -86,6 +86,7 @@ public class Albero {
         Iterator <Nodo> i = nodo.getIteratoreFigli();
         while (i.hasNext()){
             //Attenzione: non funziona!
+            //Pensare bene al perchè, che non è così ovvio
             //if (massimoR(i.next()) > max)
             //    max = massimoR(i.next());
             max = Math.max(max, massimoR(i.next()));
