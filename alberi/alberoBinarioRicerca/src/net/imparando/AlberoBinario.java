@@ -1,6 +1,8 @@
 package net.imparando;
 
 
+import java.util.Iterator;
+
 /**
  * Classe di riferimento per gli alberi binari di ricerca
  * 2022-04-03T20:55:51+02:00
@@ -89,5 +91,19 @@ public class AlberoBinario {
 
     public boolean ricerca(int n){
         return  ricercaR(root, n);
+    }
+
+    public int quantiMinori(int n){
+        return quantiMinoriR(root, n);
+    }
+    private int quantiMinoriR(Nodo attuale, int n  ){
+        if (attuale == null) return 0;
+
+        if (attuale.info < n){
+            return 1 + quantiMinoriR(attuale.sinistro, n) + quantiMinoriR(attuale.destro, n);
+        }
+        else{
+            return quantiMinoriR(attuale.sinistro, n );
+        }
     }
 }
