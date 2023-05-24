@@ -106,4 +106,22 @@ public class AlberoBinario {
             return quantiMinoriR(attuale.sinistro, n );
         }
     }
+
+    private int piuLeggeroR(Nodo attuale){
+        if (attuale.destro == null && attuale.sinistro == null)
+            return attuale.info;
+        int d = Integer.MAX_VALUE , s = Integer.MAX_VALUE;
+        if (attuale.destro != null)
+            d = piuLeggeroR(attuale.destro);
+        if (attuale.sinistro != null)
+            s = piuLeggeroR(attuale.sinistro);
+        if (s < d)
+            return s + attuale.info;
+        else
+            return d + attuale.info;
+    }
+
+    public int piuLeggero(){
+        return piuLeggeroR(root);
+    }
 }

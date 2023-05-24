@@ -27,6 +27,9 @@ public class Main {
         //Verifica del conteggio dei minori di con il metodo creato
         System.out.println("Minori di 30: " + a.quantiMinori(30));
         System.out.println("Minori di 60: " + a.quantiMinori(60));
+        //Verifica della ricerca del percorso più leggero
+        System.out.println("Il percorso più leggero pesa: " + a.piuLeggero());
+
         //Misura delle prestazioni
         ArrayList<Integer> l = new ArrayList<>();
         for (int i = 0; i < 1000000; i++)
