@@ -19,9 +19,24 @@ public class SelectionSort {
             v[PosMin]=temp;
         }
     }
+
+    private static void SelectionSortR(int []v, int inizio, int fine){
+            if (inizio == fine)
+                return;
+            int PosMin = inizio;
+            for (int j = inizio+1; j <= fine; j++) {
+                if(v[j]<v[PosMin]){
+                    PosMin =j;
+                }
+            }
+            int temp = v[inizio];
+            v[inizio]=v[PosMin];
+            v[PosMin]=temp;
+            SelectionSortR(v, inizio + 1, fine);
+    }
     public static void main (String [] strings){
-        final int LUNGHEZZA = 100000; //equivalente di const in C++
-        final boolean DEBUG = false;
+        final int LUNGHEZZA = 10; //equivalente di const in C++
+        final boolean DEBUG = true;
 
         int []v;
 
@@ -40,7 +55,7 @@ public class SelectionSort {
 
         long inizio = System.nanoTime();
         //Algoritmo di cui sto misurando le prestazioni
-        SelectionSort(v, 0, LUNGHEZZA - 1);
+        SelectionSortR(v, 0, LUNGHEZZA - 1);
         long fine = System.nanoTime();
         float durata = (fine - inizio) / 1000000;
         System.out.println("Il tempo impiegato dal SelectionSort per ordinare "
