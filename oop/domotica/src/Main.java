@@ -4,8 +4,11 @@ public class Main {
          * Quando si definisce una classe quello è il modello su cui
          * si vogliono creare degli oggetti
          */
-        Lampadina l = new Lampadina();
-        l.potenza = 100000;
-        System.out.println(l.potenza);
+        Lampadina a, b;
+        a = new Lampadina(50, "bianco", "sala");
+        b = new Lampadina(20, "blu", "cucina");
+        System.out.println(a);
+        System.out.println(b.toString());
+        
     }
 }
