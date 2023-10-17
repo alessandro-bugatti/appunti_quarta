@@ -9,6 +9,14 @@ public class Main {
         b = new Lampadina(20, "blu", "cucina");
         System.out.println(a);
         System.out.println(b.toString());
-        
+
+        Sistema s = new Sistema();
+        Sistema t = new Sistema(200);
+        if(s.aggiungiLampadina(a)){
+            System.out.println("Successo");
+        }
+        else {
+            System.out.println("Fallimento");
+        }
     }
 }
