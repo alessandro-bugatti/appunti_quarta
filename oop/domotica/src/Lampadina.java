@@ -47,10 +47,7 @@ public class Lampadina {
      * @param nome
      */
     public Lampadina(int potenza, String colore, String nome){
-        if (potenza<=100 && potenza>=0)
-            this.potenza = potenza;
-        else
-            this.potenza = 10;
+        this.setPotenza(potenza);
         this.colore = colore;
         this.nome = nome;
     }
@@ -64,6 +61,28 @@ public class Lampadina {
     public String toString(){
         return "la lampadina "+ this.nome + " ha una potenza di " +
                 this.potenza + " ed è di colore " + this.colore;
+    }
+
+    /**
+     * I metodi getter/setter sono metodi standard che servono a
+     * leggere(get) o scrivere(set) i valori di attibuti privati.
+     * Non sono obbligatori, ogni volta decideremo caso per caso
+     * se farli o meno.
+     * Nella nomenclatura standard di Java si chiamerebbero
+     * getNomeAttributo e setNomeAttributo
+     */
+    /**
+     * Metodo getter che ritorna il valore della potenza
+     * @return Valore della potenza in watt
+     */
+    public int getPotenza(){
+        return this.potenza;
+    }
+
+    public void setPotenza(int potenza){
+        this.potenza = potenza;
+        if (this.potenza > 100 || this.potenza < 1)
+            this.potenza = 5;
     }
 
 

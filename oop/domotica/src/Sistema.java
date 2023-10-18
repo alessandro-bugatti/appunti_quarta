@@ -15,6 +15,11 @@ public class Sistema {
         this.n_lampadine = 0;
     }
 
+    /**
+     * Costruttore che permette di creare un sistema con
+     * un numero arbitrario di lampadine compreso tra 2 e 1000
+     * @param max_lampadine
+     */
     public Sistema(int max_lampadine){
         this.max_lampadine = max_lampadine;
         if (this.max_lampadine <= 1 || this.max_lampadine > 1000)
@@ -23,12 +28,27 @@ public class Sistema {
         this.n_lampadine = 0;
     }
 
+    /**
+     * Metodo che permette di aggiungere una lampadina al sistema
+     * @param l La lampadina che verrà aggiunta
+     * @return Vero se la lampadina è stata aggiunta, falso altrimenti
+     */
     public boolean aggiungiLampadina(Lampadina l){
         if (this.n_lampadine == this.max_lampadine)
             return false;
         this.lampadine[this.n_lampadine] = l;
         this.n_lampadine++;
         return true;
+    }
+
+    @Override
+    public String toString(){
+        String s;
+        s = "Numero di lampadine presenti nel sistema: " + this.n_lampadine + "\n";
+        for (int i = 0; i < this.n_lampadine; i++) {
+            s += this.lampadine[i].toString() + "\n";
+        }
+        return s;
     }
 
 }
