@@ -41,6 +41,16 @@ public class Sistema {
         return true;
     }
 
+    public Lampadina cerca(String nome){
+        for (int i = 0; i < this.n_lampadine; i++) {
+            Lampadina l = this.lampadine[i];
+            String nomeLampadina = l.getNome();
+            if (nomeLampadina.equals(nome))
+                return l;
+        }
+        return null;
+    }
+
     @Override
     public String toString(){
         String s;

@@ -35,7 +35,7 @@ public class Lampadina {
      */
     public Lampadina(){
         this.potenza = 10;
-        this.intensita = 0;
+        this.intensita = 100;
         this.colore = "bianco";
         this.accesa = false;
     }
@@ -50,6 +50,7 @@ public class Lampadina {
         this.setPotenza(potenza);
         this.colore = colore;
         this.nome = nome;
+        this.intensita = 100;
     }
 
     /**
@@ -60,7 +61,8 @@ public class Lampadina {
     @Override
     public String toString(){
         return "la lampadina "+ this.nome + " ha una potenza di " +
-                this.potenza + " ed è di colore " + this.colore;
+                this.potenza + " ed è di colore " + this.colore + ". Intensità"
+                + this.intensita + "%";
     }
 
     /**
@@ -75,15 +77,23 @@ public class Lampadina {
      * Metodo getter che ritorna il valore della potenza
      * @return Valore della potenza in watt
      */
-    public int getPotenza(){
-        return this.potenza;
+    public int getIntensita(){
+        return this.intensita;
     }
 
-    public void setPotenza(int potenza){
+    public void setIntensita(int intensita){
+        this.intensita = intensita;
+        if (this.intensita > 100 || this.intensita < 1)
+            this.intensita = 50;
+    }
+
+    private void setPotenza(int potenza){
         this.potenza = potenza;
         if (this.potenza > 100 || this.potenza < 1)
             this.potenza = 5;
     }
 
-
+    public String getNome() {
+        return this.nome;
+    }
 }

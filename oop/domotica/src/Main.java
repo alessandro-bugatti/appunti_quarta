@@ -4,7 +4,11 @@ public class Main {
 
     private static void menu(){
         System.out.println("1 - Inserisci una nuova lampadina");
-        System.out.println("2 - Modifica la potenza di una lampadina");
+        System.out.println("2 - Modifica l'intensità di una lampadina");
+        System.out.println("3 - Accendi una lampadina");
+        System.out.println("4 - Spegni una lampadina");
+        System.out.println("5 - Spegni tutte le lampadine");
+        System.out.println("6 - Rimuovi una lampadina");
         System.out.println("0 - Esci");
         System.out.println("Fai la tua scelta: ");
     }
@@ -30,6 +34,20 @@ public class Main {
                     sistema.aggiungiLampadina(temp);
                     break;
                 case 2:
+                    String nomeLampadina;
+                    System.out.println("Inserisci il nome della lampadina di cui vuoi modificare l'intensità: ");
+                    nomeLampadina = in.next();
+                    Lampadina cercata;
+                    cercata = sistema.cerca(nomeLampadina);
+                    if (cercata == null){
+                        System.out.println("Lampadina non trovata.");
+                    }
+                    else{
+                        System.out.println("Inserisci il nuovo valore di intensità (attualmente è al " + cercata.getIntensita() + "%)");
+                        int intensita;
+                        intensita = in.nextInt();
+                        cercata.setIntensita(intensita);
+                    }
                     break;
             }
             System.out.println(sistema);
