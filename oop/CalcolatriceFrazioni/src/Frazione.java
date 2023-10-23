@@ -21,13 +21,27 @@ public class Frazione {
         this.numeratore /= divisore;
         this.denominatore /= divisore;
     }
+    public Frazione(int numeratore){
+        this.numeratore = numeratore;
+        this.denominatore = 1;
+    }
 
-    private int MCD(int a, int b){
+    //un metodo che non utilizza nessun attributo della classe è meglio
+    //che venga definito "static"
+    private static int MCD(int a, int b){
         if (b == 0)
             return a;
         return MCD(b, a%b);
     }
-
+    public Frazione somma(Frazione f1){
+        int d = f1.denominatore * this.denominatore;
+        int n = (f1.numeratore * this.denominatore) + (this.numeratore* f1.denominatore);
+        return new Frazione(n, d);
+    }
+    public Frazione differenza(Frazione f1){
+        f1.numeratore = -f1.numeratore;
+        return this.somma(f1);
+    }
     @Override
     public String toString() {
         if (this.denominatore == 1)
