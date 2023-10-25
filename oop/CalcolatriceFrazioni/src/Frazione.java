@@ -39,8 +39,8 @@ public class Frazione {
         return new Frazione(n, d);
     }
     public Frazione differenza(Frazione f1){
-        f1.numeratore = -f1.numeratore;
-        return this.somma(f1);
+        Frazione f = new Frazione(-f1.numeratore, f1.denominatore);
+        return this.somma(f);
     }
     @Override
     public String toString() {
