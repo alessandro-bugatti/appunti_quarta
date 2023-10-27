@@ -5,14 +5,17 @@ public class Sistema {
 
     private int max_lampadine;
 
+    private Picture sfondo;
+
     /**
      * Costruttore vuoto che crea un sistema che può
      * contenere fino a 100 lampadine, attualmente senza lampadine
      */
-    public Sistema(){
+    public Sistema(Picture p){
         this.max_lampadine = 100;
         this.lampadine = new Lampadina[this.max_lampadine];
         this.n_lampadine = 0;
+        this.sfondo = p;
     }
 
     /**
@@ -62,9 +65,11 @@ public class Sistema {
     }
 
     public void disegna(){
+        this.sfondo.draw();
         for (int i = 0; i < this.n_lampadine; i++) {
             this.lampadine[i].disegna();
         }
+        Canvas.getInstance().repaint();
     }
 
 }

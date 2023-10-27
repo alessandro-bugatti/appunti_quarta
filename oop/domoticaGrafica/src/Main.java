@@ -14,7 +14,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Sistema sistema = new Sistema();
+
+        Picture planimetria = new Picture();
+        planimetria.load("casa.png");
+        Sistema sistema = new Sistema(planimetria);
         int scelta;
         menu();
         Scanner in = new Scanner(System.in);

@@ -20,6 +20,8 @@ public class Lampadina {
     private Ellipse e;
     private Text t;
 
+    private Rectangle r;
+
     /*
     metodo costruttore
     -ha lo stesso nome della classe
@@ -45,7 +47,9 @@ public class Lampadina {
         this.accesa = false;
         this.x = (int)(Math.random() * 400);
         this.y = (int)(Math.random() * 400);
-        e = new Ellipse(this.x, this.y, 30, 30);
+        e = new Ellipse(this.x, this.y, potenza, potenza);
+        r = new Rectangle(this.x + e.getWidth()/2 - 5, this.y + e.getHeight(), 10, 20);
+        r.setColor(Color.BLACK);
         t = new Text(this.x, this.y + 30 , this.nome);
     }
 
@@ -63,6 +67,8 @@ public class Lampadina {
         this.x = (int)(Math.random() * 400);
         this.y = (int)(Math.random() * 400);
         e = new Ellipse(this.x, this.y, this.potenza, this.potenza);
+        r = new Rectangle(this.x + e.getWidth()/2 - 5, this.y + e.getHeight(), 10, 20);
+        r.setColor(Color.BLACK);
         t = new Text(this.x, this.y + 30 , this.nome);
     }
 
@@ -114,8 +120,8 @@ public class Lampadina {
         this.e.setColor(new Color(255,
                 255,
                 (255 * (100 -intensita))/100));
-        this.e.draw();
-        this.t.draw();
         this.e.fill();
-    }
+        this.r.fill();
+        this.t.draw();
+        }
 }

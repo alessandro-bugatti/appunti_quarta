@@ -124,6 +124,7 @@ public class Canvas
     public void repaint()
     {
         if (frame == null) return;
+        frame.repaint();
         Dimension dim = component.getPreferredSize();
         if (dim.getWidth() > component.getWidth()
                 || dim.getHeight() > component.getHeight())
