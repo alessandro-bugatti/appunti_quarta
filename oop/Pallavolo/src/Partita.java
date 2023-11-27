@@ -39,4 +39,27 @@ public class Partita {
     public int getSetCasa(){
         return this.setCasa;
     }
+
+    public boolean assegnaPuntoOspiti(){
+        this.punteggioOspiti++;
+        if (this.punteggioOspiti >= 25  && this.punteggioOspiti >= punteggioCasa + 2) {
+            this.punteggioCasa = 0;
+            this.punteggioOspiti = 0;
+            this.setOspiti++;
+            this.setCorrente++;
+            return true;
+        }
+        return false;
+    }
+
+    public int getPunteggioOspiti(){
+        return this.punteggioOspiti;
+    }
+
+    public int getSetOspiti(){
+        return this.setOspiti;
+    }
+
+
+
 }

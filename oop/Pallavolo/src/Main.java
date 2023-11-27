@@ -7,12 +7,15 @@ public class Main {
 
             if (partita.assegnaPuntoCasa())
                 System.out.println("Set vinto");
+            partita.assegnaPuntoOspiti();
         }
         System.out.println(partita.getPunteggioCasa());
         System.out.println(partita.getSetCasa());
         partita.assegnaPuntoCasa();
         System.out.println(partita.getPunteggioCasa());
         System.out.println(partita.getSetCasa());
+        System.out.println(partita.getPunteggioOspiti());
+        System.out.println(partita.getSetOspiti());
 
     }
 }
