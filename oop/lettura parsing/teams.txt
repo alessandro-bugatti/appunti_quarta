@@ -1,0 +1,16 @@
+Arsenal (ENG)		B		Seeded
+Atletico Madrid (SPA)		E		Seeded
+Barcelona (SPA)		H		Seeded
+Bayern Munich (GER)		A		Seeded
+Borussia Dortmund (GER)		F		Seeded
+Manchester City (ENG)		G		Seeded
+Real Madrid (SPA)		C		Seeded
+Real Sociedad (SPA)		D		Seeded
+Copenhagen (DEN)		A		Unseeded
+Inter Milan (ITA)		D		Unseeded
+Lazio (ITA)		E		Unseeded
+RB Leipzig (GER)		G		Unseeded
+Napoli (ITA)		C		Unseeded
+PSG (FRA)		F		Unseeded
+Porto (POR)		G		Unseeded
+PSV (NED)		B		Unseeded
