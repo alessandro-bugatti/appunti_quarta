@@ -1,7 +1,18 @@
+/**
+ * Classe che va a modellizzare una frazione composta da due interi.
+ * @author Alessandro Bugatti
+ */
+
 public class Frazione {
     private int numeratore;
     private int denominatore;
 
+    /**
+     * Costruttore che prende come parametro numeratore e denominatore di una frazione.
+     * Se il denominatore è 0, al momento lo accetta e potrebbe generare problemi nei metodi
+     * @param numeratore Numeratore della frazione
+     * @param denominatore Denominatore della frazione
+     */
     public Frazione(int numeratore, int denominatore) {
         this.numeratore = numeratore;
         this.denominatore = denominatore;
@@ -23,16 +34,25 @@ public class Frazione {
     }
     public Frazione(int numeratore){
         this.numeratore = numeratore;
-        this.denominatore = 1;
+        this.denominatore = 1; // Se il denominatore è 1, allora la frazione è un intero
     }
 
-    //un metodo che non utilizza nessun attributo della classe è meglio
-    //che venga definito "static"
+    /*un metodo che non utilizza nessun attributo della classe è meglio
+    che venga definito "static"*/
     private static int MCD(int a, int b){
         if (b == 0)
             return a;
         return MCD(b, a%b);
     }
+
+    /**
+     * Somma tra di loro la frazione corrente e la frazione passata come parametro.
+     * La frazione corrente (this) non viene modificata dall'operazione
+     * <h4>Esempio</h4>
+     * <strong>1/2</strong> + <strong>1/3</strong> darà come frazione risultato <strong>5/6</strong>
+     * @param f1 La frazione che viene aggiunta alla frazione this
+     * @return Un nuovo oggetto frazione, che è la somma delle due
+     */
     public Frazione somma(Frazione f1){
         int d = f1.denominatore * this.denominatore;
         int n = (f1.numeratore * this.denominatore) + (this.numeratore* f1.denominatore);
