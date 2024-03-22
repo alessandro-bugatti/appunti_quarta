@@ -21,4 +21,10 @@ public abstract class Figura {
     }
 
     public abstract float getPerimetro();
+
+    @Override
+    public String toString(){
+        return "Colore " + this.colore + "(" + this.x +
+                "," + this.y + ")";
+     }
 }
