@@ -9,7 +9,7 @@
 
 # Cosa abbiamo imparato da questo esempio
 
-- Una classe che erdita da un'altra, al suo interno contiene tutti gli attributi e i metodi della classe da cui eredita
+- Una classe che eredita da un'altra, al suo interno contiene tutti gli attributi e i metodi della classe da cui eredita
 - Se un attributo o un metodo sono privati nella classe padre, la classe figlio li contiene, ma non può accedere direttamente
 - La parola chiave per indicare che una classe B eredita da una classe A è `extends` e si usa in questo modo
     ```java
