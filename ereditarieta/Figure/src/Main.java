@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Perimetro del rettangolo: " + r.getPerimetro());
 
         //Polimorfismo
-        //Downcasting implicito
+        //Upcasting implicito
         Figura f = new Cerchio("Blu", 12, 4,6);
         System.out.println(f.getPerimetro());
         Figura g = new Rettangolo("Giallo", 3, 4, 5, 6);
@@ -40,7 +40,9 @@ public class Main {
         }
         Cerchio c2 = c;
         Figura l = c;
+        //Downcasting legale
         Cerchio vero = (Cerchio) f;
+        //Downcasting illegale, genererà un'eccezione in runtime
         Cerchio finto = (Cerchio) g;
         vero.metodoDelCerchio();
         finto.metodoDelCerchio();
