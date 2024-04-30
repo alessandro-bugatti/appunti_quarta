@@ -28,9 +28,17 @@ public class MyLinkedList {
         if (index < 0 || index > this.n_items)
             return false;
         if (index == 0){
-
+            return this.add(n);
         }
-        return false;
+        Nodo nodo;
+        nodo = head;
+        for (int i = 0; i < index - 1; i++) {
+            nodo = nodo.next;
+        }
+        Nodo nuovo = new Nodo(n,nodo.next);
+        nodo.next = nuovo;
+        this.n_items++;
+        return true;
     }
 
     public int size() {
@@ -38,11 +46,29 @@ public class MyLinkedList {
     }
 
     public boolean remove(){
-        return false;
+        if (this.n_items == 0)
+            return false;
+        head = head.next;
+        this.n_items--;
+        return true;
     }
 
     public boolean remove(int index){
-        return false;
+        if (index < 0 || index >= this.n_items){
+            return false;
+        }
+        if (index == 0){
+            return remove();
+        }
+        Nodo n = head;
+        for (int i = 0; i < index - 1; i++) {
+            n = n.next;
+        }
+        //Nodo dopo = n.next;
+        //n.next = dopo.next;
+        n.next = n.next.next;
+        this.n_items--;
+        return true;
     }
 
     @Override

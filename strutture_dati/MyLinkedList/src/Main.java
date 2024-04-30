@@ -15,5 +15,20 @@ public class Main {
         Collections.reverse(ll);
         System.out.println(ll);
         System.out.println(mll);
+        ll.add( ll.size(), 10);
+        mll.add(mll.size(), 10);
+        System.out.println(ll);
+        System.out.println(mll);
+        ll.remove();
+        mll.remove();
+        System.out.println(ll);
+        System.out.println(mll);
+        ll.remove(1);
+        mll.remove(1);
+        System.out.println(ll);
+        System.out.println(mll);
+
+
+
     }
 }
