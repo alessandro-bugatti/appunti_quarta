@@ -28,5 +28,17 @@ public class Main {
         System.out.print("Massimo: ");
         System.out.println(a.massimo());
 
+        int n = 51;
+        System.out.println("Profondità del nodo " + n);
+        System.out.println(a.profondita(n));
+
+        n = 26;
+        System.out.println("Profondità del nodo " + n);
+        System.out.println(a.profondita(n));
+
+        n = 77;
+        System.out.println("Profondità del nodo " + n);
+        System.out.println(a.profondita(n));
+
     }
 }

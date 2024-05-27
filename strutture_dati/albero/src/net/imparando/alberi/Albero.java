@@ -39,10 +39,10 @@ public class Albero {
         return true;
     }
 
-    private void visitaAnticipataR(Nodo n)
+    private void visitaAnticipataR(Nodo attuale)
     {
-        System.out.print(n.info + " -> ");
-        Iterator<Nodo> i = n.figli.iterator();
+        System.out.print(attuale.info + " -> ");
+        Iterator<Nodo> i = attuale.figli.iterator();
         while (i.hasNext()){
             visitaAnticipataR(i.next());
         }
@@ -55,14 +55,14 @@ public class Albero {
         System.out.print("end");
     }
 
-    private void visitaPosticipataR(Nodo n)
+    private void visitaPosticipataR(Nodo attuale)
     {
 
-        Iterator<Nodo> i = n.figli.iterator();
+        Iterator<Nodo> i = attuale.figli.iterator();
         while (i.hasNext()){
             visitaPosticipataR(i.next());
         }
-        System.out.print(n.info + " -> ");
+        System.out.print(attuale.info + " -> ");
     }
 
     public void visitaPosticipata()
@@ -85,9 +85,9 @@ public class Albero {
     del nodo e il massimo del valore dei suoi sottoalberi
      */
 
-    private int massimoR(Nodo n) {
-        int max = n.info;
-        Iterator<Nodo> i = n.figli.iterator();
+    private int massimoR(Nodo attuale) {
+        int max = attuale.info;
+        Iterator<Nodo> i = attuale.figli.iterator();
         while(i.hasNext()){
             int temp = massimoR(i.next());
             if (temp > max){
@@ -113,13 +113,17 @@ public class Albero {
             return p;
         Iterator<Nodo> i = attuale.figli.iterator();
         while(i.hasNext()){
-            profonditaR(i.next(), n, p + 1);
+            int temp = profonditaR(i.next(), n, p + 1);
+            if (temp != -1)
+                return temp;
         }
         return -1;
         //sbagliato, da finire
     }
 
     public int profondita(int n){
+        if (empty())
+            return -1;
         return profonditaR(root, n, 0);
     }
 
