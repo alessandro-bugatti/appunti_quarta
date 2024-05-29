@@ -14,17 +14,16 @@ public class Main {
         a.aggiungiElemento(71);
         a.aggiungiElemento(50);
         a.aggiungiElemento(84);
+
         a.aggiungiElemento(48);
         a.aggiungiElemento(62);
         a.aggiungiElemento(87);
-        a.visitaInOrdine();
-        System.out.println(a.ricerca(45));
-        System.out.println(a.ricerca(84));
-        System.out.println(a.massimo());
-        System.out.println(a.minimo());
-        System.out.println(a.lunghezzaPercorso(13, 84));
-        System.out.println(a.lunghezzaPercorso(50, 87));
-        System.out.println(a.lunghezzaPercorso(42, 87));
-        System.out.println(a.lunghezzaPercorso(21, 48));
+        a.visitaSimmetrica();
+
+        System.out.println("Ricerca 48: " + a.ricerca(48));
+        System.out.println("Ricerca 71: " + a.ricerca(71));
+        System.out.println("Ricerca 100: " + a.ricerca(100));
+
+        System.out.println("Massimo: " + a.massimo());
     }
 }

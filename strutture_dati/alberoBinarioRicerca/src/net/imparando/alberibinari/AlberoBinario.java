@@ -18,9 +18,17 @@ public class AlberoBinario {
         if (attuale.info == n)
             return false;
         if(n > attuale.info){
+            if(attuale.dx == null){
+                attuale.dx = new Nodo(n);
+                return true;
+            }
             return aggiungiElementoR(attuale.dx, n);
         }
         else {
+            if(attuale.sx == null){
+                attuale.sx = new Nodo(n);
+                return true;
+            }
             return aggiungiElementoR(attuale.sx, n);
         }
     }
@@ -29,8 +37,31 @@ public class AlberoBinario {
         return aggiungiElementoR(root, n);
     }
 
+    private void visitaSimmetricaR(Nodo attuale){
+        if (attuale == null)
+            return;
+        visitaSimmetricaR(attuale.sx);
+        System.out.print(attuale.info + " -> ");
+        visitaSimmetricaR(attuale.dx);
+    }
+
+    public void visitaSimmetrica(){
+        visitaSimmetricaR(root);
+        System.out.println("end");
+    }
+
     private boolean ricercaR(Nodo attuale, int n){
-        return false;
+        if (attuale == null)
+            return false;
+        if (attuale.info == n)
+            return true;
+        if(n > attuale.info){
+            return ricercaR(attuale.dx, n);
+        }
+        else{
+            return ricercaR(attuale.sx, n);
+        }
+
     }
 
     public boolean ricerca(int n){
@@ -57,7 +88,9 @@ public class AlberoBinario {
     }
 
     private int massimoR(Nodo attuale) {
-        return 42;
+        if (attuale.dx == null)
+            return attuale.info;
+        return massimoR(attuale.dx);
     }
 
     public int minimo(){
