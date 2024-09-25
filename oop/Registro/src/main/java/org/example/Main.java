@@ -45,5 +45,11 @@ public class Main {
         s.setAltezza(-120);
         System.out.println(s.getAltezza());
 
+        Studente t = new Studente("Anna", "Beluni", -164, 62);
+        System.out.println(t.getAltezza());
+        System.out.println(t);
+        System.out.println(s);
+
+
     }
 }
