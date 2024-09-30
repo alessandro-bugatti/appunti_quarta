@@ -73,4 +73,13 @@ public class Studente {
         s += "\nCognome: " + this.cognome;
         return s;
     }
+
+    //Metodi richiesti per esercizio
+    public String valutaAltezza(){
+        return "";
+    }
+
+    public float getBMI(){
+        return 0.0f;
+    }
 }
