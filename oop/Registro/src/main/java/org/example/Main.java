@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -49,6 +51,24 @@ public class Main {
         System.out.println(t.getAltezza());
         System.out.println(t);
         System.out.println(s);
+
+        //Esempio di utilizzo della classe Scanner
+        Scanner in;
+        in = new Scanner(System.in);
+        int i;
+        System.out.println("Inserisci un numero intero: ");
+        i = in.nextInt();
+        System.out.println("Hai inserito il numero " + i);
+
+        float f;
+        System.out.println("Inserisci un numero con virgola: ");
+        f = in.nextFloat();
+        System.out.println("Hai inserito il numero " + f);
+
+        String  str;
+        System.out.println("Inserisci una stringa: ");
+        str = in.next();
+        System.out.println("Hai inserito la parola " + str);
 
 
     }
