@@ -20,6 +20,12 @@ public class Studente {
     private float altezza;
     private float peso;
 
+    //Attributo costante poichè compare la parola final
+    //Attributo statico poiché compare la parola static: vuole
+    //dire che ne esiste un solo esemplare a livello della classe
+    //e che tutti gli oggetti riferiscono a quell'unica istanza
+    private final static float ALTO = 180.0f;
+
     public Studente(){
 
     }
@@ -76,10 +82,13 @@ public class Studente {
 
     //Metodi richiesti per esercizio
     public String valutaAltezza(){
+
+        if (this.altezza > ALTO)
+            return "Alto";
         return "";
     }
 
     public float getBMI(){
-        return 0.0f;
+        return this.peso / (float) Math.pow(this.altezza, 2);
     }
 }
