@@ -13,6 +13,14 @@ public class Lampadina {
         this.nome = "";
     }
 
+    public Lampadina(float potenza, String nome){
+        this.potenza = potenza;
+        this.intensita = 50;
+        this.colore = "Bianco";
+        this.accesa = false;
+        this.nome = nome;
+    }
+
     public Lampadina(Lampadina l){
         this.potenza = l.potenza;
         this.intensita = l.intensita;

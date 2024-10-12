@@ -55,6 +55,15 @@ public class Main {
             System.out.println(l);
         }
 
+        SistemaDomotico sistemaDomotico = new SistemaDomotico(10);
+
+        s.setNome("Test");
+
+        sistemaDomotico.aggiungi(s);
+        sistemaDomotico.aggiungi(new Lampadina(80,"Test2"));
+
+        sistemaDomotico.accendi("Test2");
+        s.accendi();
 
     }
 }
