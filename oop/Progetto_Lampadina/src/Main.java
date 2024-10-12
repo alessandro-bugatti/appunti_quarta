@@ -32,6 +32,11 @@ public class Main {
         System.out.println(s);
         System.out.println(f);
 
+        s.setIntensita(56);
+        System.out.println(s);
+        s.setIntensita(45);
+        System.out.println(s);
+
         int[] v = new int[10];
         for (int i = 0; i < v.length; i++) {
             v[i] = i;
@@ -49,6 +54,7 @@ public class Main {
         for (Lampadina l: accese) {
             System.out.println(l);
         }
+
 
     }
 }

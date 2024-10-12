@@ -41,8 +41,35 @@ public class Lampadina {
         this.nome = nome;
     }
 
+    public int getIntensita() {
+        return intensita;
+    }
+
+    public void setIntensita(int intensita) {
+        this.intensita = intensita;
+        if (this.intensita < 0)
+            this.intensita = 0;
+        else if (this.intensita > 100)
+            this.intensita = 100;
+        else
+            this.intensita = Math.round(this.intensita/10.0f)*10;
+    }
+
+    public void aumentaIntensita(){
+        this.intensita += 10;
+        if (this.intensita > 100)
+            this.intensita = 100;
+    }
+
+    public void diminuisciIntensita(){
+        this.intensita -= 10;
+        if (this.intensita < 0)
+            this.intensita = 0;
+    }
+
     @Override
     public String toString() {
-        return this.getNome() + " : " + this.potenza + "W";
+        return this.getNome() + " : " + this.potenza + "W" + " al " +
+                this.intensita + "%";
     }
 }
