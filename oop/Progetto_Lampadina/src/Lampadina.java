@@ -1,3 +1,7 @@
+/**
+ * Classe che rappresenta una lampadina intelligente
+ * che ha una potenza, ecc.
+ */
 public class Lampadina {
     private String nome;
     private final float potenza;
@@ -5,6 +9,12 @@ public class Lampadina {
     private String colore;
     private boolean accesa;
 
+    /**
+     * Costruttore che inizializza una lampadina con una
+     * potenza passata come parametro e che non potrà più
+     * essere modificata
+     * @param potenza
+     */
     public Lampadina(float potenza){
         this.potenza = potenza;
         this.intensita = 50;
@@ -13,6 +23,11 @@ public class Lampadina {
         this.nome = "";
     }
 
+    /**
+     *
+     * @param potenza
+     * @param nome
+     */
     public Lampadina(float potenza, String nome){
         this.potenza = potenza;
         this.intensita = 50;
@@ -37,6 +52,10 @@ public class Lampadina {
         this.accesa = false;
     }
 
+    /**
+     * Verifica lo stato di accensione della lampadina
+     * @return true se la lampadina è accesa, false altrimenti
+     */
     public boolean isAcceso(){
         return this.accesa;
     }
