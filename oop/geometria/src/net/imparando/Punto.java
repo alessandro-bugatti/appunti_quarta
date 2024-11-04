@@ -1,3 +1,5 @@
+package net.imparando;
+
 public class Punto {
     private double x;
     private double y;
