@@ -2,6 +2,8 @@ public class Presa {
     private int x, y;
 
     public Presa(String s){
-        x = y = 42;
+        String pezzi[] = s.split(" ");
+        x = Integer.parseInt(pezzi[0]);
+        y = Integer.parseInt(pezzi[1]);
     }
 }
