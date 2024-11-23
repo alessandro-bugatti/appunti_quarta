@@ -1,8 +1,10 @@
+import java.io.Serializable;
+
 /**
  * Classe che rappresenta una lampadina intelligente
  * che ha una potenza, ecc.
  */
-public class Lampadina {
+public class Lampadina implements Serializable {
     private String nome;
     private final float potenza;
     private int intensita;
