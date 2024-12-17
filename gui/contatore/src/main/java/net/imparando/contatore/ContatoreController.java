@@ -1,23 +1,35 @@
 package net.imparando.contatore;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class ContatoreController {
-    @FXML
-    private Label welcomeText;
-
-    private Contatore contatore;
 
     @FXML
-    protected void initialize(){
-        contatore = new Contatore(15);
+    public Label lblTrasferta;
+    @FXML
+    public Label lblCasa;
+
+    private Contatore casa, trasferta;
+
+
+
+    @FXML
+    public void initialize(){
+        casa = new Contatore(25);
+        trasferta = new Contatore(25);
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        contatore.incrementa();
-        welcomeText.setText(contatore.toString());
-        System.out.println("Ciao");
+
+    public void btnCasaOnclick(ActionEvent actionEvent) {
+        casa.incrementa();
+        lblCasa.setText(casa.toString());
+
+    }
+
+    public void btnTrasfertaOnclick(ActionEvent actionEvent) {
+        trasferta.incrementa();
+        lblTrasferta.setText(trasferta.toString());
     }
 }

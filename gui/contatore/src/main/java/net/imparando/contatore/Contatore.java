@@ -6,7 +6,7 @@ public class Contatore {
 
     public Contatore(int max){
         contatore = 0;
-        MAX = max;
+        MAX = max + 1;
     }
 
     public void incrementa(){
