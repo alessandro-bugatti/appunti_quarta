@@ -10,7 +10,7 @@ public class SegnoZodiacaleController {
     @FXML
     private DatePicker calNascita;
     @FXML
-    private Label txtMessaggio;
+    private Label lblMessaggio;
 
     @FXML
     protected void onMostraButtonClick() {
@@ -19,6 +19,6 @@ public class SegnoZodiacaleController {
         int anno = data.getYear();
         int mese = data.getMonthValue();
         int giorno = data.getDayOfMonth();
-        txtMessaggio.setText("La data inserita è " + giorno + "/" + mese + "/" + anno );
+        lblMessaggio.setText("Giorno " + giorno + " mese: " + mese + " anno: " + anno );
     }
 }

@@ -12,6 +12,6 @@
     </padding>
    <DatePicker fx:id="calNascita" />
 
-    <Label fx:id="txtMessaggio" />
+    <Label fx:id="lblMessaggio" />
     <Button onAction="#onMostraButtonClick" text="Mostra la data" />
 </VBox>
