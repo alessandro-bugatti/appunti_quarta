@@ -45,15 +45,15 @@ public class ComboController {
 
     public void onEsteroSelected(ActionEvent actionEvent) {
         if (estero){
-            //choNumeri.setVisible(true);
-            //cmbNumeri.setVisible(false);
+            //choComuni.setVisible(true);
+            //cmbStati.setVisible(false);
             hboxComuniStati.getChildren().remove(cmbStati);
             hboxComuniStati.getChildren().add(choComuni);
             estero = false;
         }
         else{
-            //choNumeri.setVisible(false);
-            //cmbNumeri.setVisible(true);
+            //choComuni.setVisible(false);
+            //cmbStati.setVisible(true);
             hboxComuniStati.getChildren().remove(choComuni);
             hboxComuniStati.getChildren().add(cmbStati);
             estero = true;
