@@ -65,14 +65,41 @@ public class MyLinkedList{
         }
     }
 
-    @Override
-    public String toString(){
-        String s = "";
+    public int size () {
+        return n_items;
+    }
+    
+    public boolean empty () {
+        return n_items == 0;
+    }
+    
+    public int get  (int index) throws ArrayIndexOutOfBoundsException {
+        if(index < 0 || index >= n_items) {
+            throw new ArrayIndexOutOfBoundsException("Indice non valido");
+        }
         Nodo temp = head;
-        while(temp != null){
-            s += temp.info + " ";
+        for(int i = 0; i < index; i++){
             temp = temp.next;
         }
-        return s;
+        return temp.info;
+    }
+
+    @Override
+    public String toString(){
+        if (n_items == 0)
+            return "[]";
+        String s = "[";
+        Nodo temp = head;
+        while(temp != null){
+            s += temp.info + ", ";
+            temp = temp.next;
+        }
+
+        return s.substring(0, s.length() - 2) + "]";
+    }
+
+    public void clear(){
+        this.head = null;
+        this.n_items = 0;
     }
 }
