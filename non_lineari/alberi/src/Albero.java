@@ -24,7 +24,38 @@ public class Albero {
         }
         return null;
     }
+
     public boolean add(int n, int padre){
         Nodo cercato=cercaNodo(padre,root);
+        if (cercato == null)
+            return false;
+        cercato.figli.add(new Nodo(n));
+        n_items++;
+        return true;
     }
+
+
+    private void visitaAnticipataR(Nodo n){
+        System.out.print(n.info + " ");
+        for (Nodo i: n.figli) {
+            visitaAnticipataR(i);
+        }
+    }
+
+    private void visitaDifferitaR(Nodo n){
+        for (Nodo i: n.figli) {
+            visitaDifferitaR(i);
+        }
+        System.out.print(n.info + " ");
+    }
+
+    public void visitaAnticipata() {
+        if (root != null)
+            visitaAnticipataR(root);
+    }
+    public void visitaDifferita(){
+        if (root != null)
+            visitaDifferitaR(root);
+    }
+
 }
