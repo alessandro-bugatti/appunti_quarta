@@ -8,6 +8,7 @@ public class Main {
         a.visitaAnticipata();
         System.out.println();
         a.visitaDifferita();
+        System.out.println("\nMassimo: " + a.massimo());
 
     }
 }

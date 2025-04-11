@@ -58,4 +58,19 @@ public class Albero {
             visitaDifferitaR(root);
     }
 
+    private int massimoR(Nodo n){
+        int max=n.info;
+        for(Nodo i: n.figli){
+            int temp=massimoR(i);
+            if(temp>max){
+                max=temp;
+            }
+        }
+        return max;
+    }
+    //si suppone che il nodo radice ci sia sempre
+    public int massimo(){
+        return massimoR(root);
+    }
+
 }
