@@ -32,6 +32,21 @@ public class AlberoBinario {
     }
 
     public boolean add(int v){
+        return false;
+    }
 
+    private int altezzaR(Nodo n){
+        if (n == null)
+            return 0;
+        int alt_destra = altezzaR(n.dx);
+        int alt_sinistra = altezzaR(n.sx);
+        if (alt_destra > alt_sinistra)
+            return 1 + alt_destra;
+        else
+            return 1 + alt_sinistra;
+    }
+
+    public int altezza(){
+        return altezzaR(root) - 1;
     }
 }

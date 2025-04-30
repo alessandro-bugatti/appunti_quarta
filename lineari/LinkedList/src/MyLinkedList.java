@@ -31,7 +31,8 @@ public class MyLinkedList{
             for (int i = 1; i < index; i++) {
                 temp = temp.next;
             }
-            temp.next = new Nodo(n, temp.next);
+            Nodo nodo = new Nodo(n, temp.next);
+            temp.next = nodo;
             this.n_items++;
             return true;
 
@@ -82,6 +83,16 @@ public class MyLinkedList{
             temp = temp.next;
         }
         return temp.info;
+    }
+
+    public boolean contains(int cercato){
+        Nodo temp = head;
+        while (temp != null){
+            if (temp.info == cercato)
+                return true;
+            temp = temp.next;
+        }
+        return false;
     }
 
     @Override
