@@ -20,6 +20,11 @@ public class Rettangolo extends Figura{
     }
 
     @Override
+    public double getArea() {
+        return this.base * this.altezza;
+    }
+
+    @Override
     public String toString(){
         String s = super.toString();
         s += "Base: " + this.base;
@@ -27,4 +32,22 @@ public class Rettangolo extends Figura{
         return s;
 
     }
+
+    @Override
+    public void disegna() {
+        System.out.println("Sono un rettangolo");
+    }
+
+    /*
+    @Override
+    public int compareTo(Object o) {
+        Rettangolo c = (Rettangolo) o;
+        if (this.getPerimetro() < c.getPerimetro())
+            return -1;
+        else if (this.getPerimetro() == c.getPerimetro())
+            return 0;
+        else
+            return 1;
+    }
+     */
 }

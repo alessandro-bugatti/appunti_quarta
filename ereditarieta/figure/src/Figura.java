@@ -1,4 +1,6 @@
-public abstract class Figura {
+import java.io.Serializable;
+
+public abstract class Figura implements Comparable, Serializable, OggettoGeometrico, OggettoGrafico {
     private double pos_x;
     private double pos_y;
     private String colore;
@@ -13,7 +15,7 @@ public abstract class Figura {
         this.colore = colore;
     }
 
-    public void sposta(int dx, int dy){
+    public void sposta(double dx, double dy){
         this.pos_x += dx;
         this.pos_y += dy;
     }
@@ -28,4 +30,9 @@ public abstract class Figura {
     }
 
     public abstract double getPerimetro();
+
+    @Override
+    public int compareTo(Object o){
+        return (int)(this.getPerimetro() - ((Figura) o).getPerimetro());
+    }
 }

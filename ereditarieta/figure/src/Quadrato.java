@@ -10,4 +10,9 @@ public class Quadrato extends Rettangolo{
         return base * 4;
     }
 
+    @Override
+    public void disegna(){
+        System.out.println("Sono un quadrato");
+    }
+
 }
