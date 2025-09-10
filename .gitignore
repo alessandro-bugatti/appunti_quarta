@@ -1,0 +1,57 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+#Codeblocks project files
+*.layout
+*.depend
+
+#java specific
+*.class
+
+#auxiliary Dia files
+*~
+
+# Executables
+*.exe
+*.out
+*.app
+/**/nbproject/private/
+/**/build/
+/**/dist/
+
+# Configurazione presa da https://github.com/kelemen/netbeans-gradle-project/blob/master/.gitignore
+
+/*/nb-configuration.xml
+/nbproject/
+/*/nbproject/
+/*/target/
+/*/build/
+/netbeans-gradle-default-models/gradle-api/
+.gradle/
+/.nb-gradle-properties
+.nb-gradle/
+
+# Directories left from old Ant project
+/build/
+/nbproject/private/
+ 
+# Documentation
+doc/
