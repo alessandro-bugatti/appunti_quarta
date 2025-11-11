@@ -1,16 +1,18 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
         int[] a = new int[10];
+        /*
+        Esempio con eccezione unchecked, non c'è bisogno di gestirla, e generalmente
+        non è una buona idea, ma se si vuole si può fare
+         */
         Scanner in = new Scanner(System.in);
+
         int n = in.nextInt();
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
         for (int i = 0; i < n; i++) {
             try{
                 a[i] = i * 3;
@@ -18,6 +20,21 @@ public class Main {
             }catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("C'è stato un problema con l'indice " + i);
             }
+        }
+        /*
+        Esempio con eccezioni checked, che, per forza, o sono gestite o sono
+        rilanciate
+         */
+        BufferedReader bf;
+        InputStreamReader is;
+        is = new InputStreamReader(System.in);
+        bf = new BufferedReader(is);
+        String s;
+        try {
+            s = bf.readLine();
+        } catch (IOException e) {
+            s = "ciao";
+
         }
     }
 }
