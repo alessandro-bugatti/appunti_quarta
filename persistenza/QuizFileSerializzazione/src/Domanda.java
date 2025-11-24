@@ -1,4 +1,6 @@
-public class Domanda {
+import java.io.Serializable;
+
+public class Domanda implements Serializable {
     private String testo;
     private Risposta [] risposte;
     private int valore;

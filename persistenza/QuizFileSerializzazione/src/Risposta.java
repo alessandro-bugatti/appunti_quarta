@@ -1,4 +1,6 @@
-public class Risposta {
+import java.io.Serializable;
+
+public class Risposta implements Serializable {
     private String testo;
     private boolean corretta;
 

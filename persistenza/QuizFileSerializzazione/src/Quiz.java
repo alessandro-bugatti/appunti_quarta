@@ -1,4 +1,6 @@
-public class Quiz {
+import java.io.Serializable;
+
+public class Quiz implements Serializable{
     private String titolo;
     private Domanda[] domande = new Domanda[100];
     private int nDomande;
