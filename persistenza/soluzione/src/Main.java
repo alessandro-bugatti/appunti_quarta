@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import static java.time.DayOfWeek.SUNDAY;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     public static String invertiParole(String s){
@@ -22,7 +20,7 @@ public class Main {
         LocalDate a = LocalDate.parse(inizio);
         LocalDate b = LocalDate.parse(fine);
         int cont = 0;
-        for (LocalDate d = a; !d.isAfter(b); d.plusDays(1)){
+        for (LocalDate d = a; !d.isAfter(b); d = d.plusDays(1)){
             if (d.getDayOfWeek() != SUNDAY){
                 cont++;
             }
@@ -82,6 +80,5 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
     }
 }
