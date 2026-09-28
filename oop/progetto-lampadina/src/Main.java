@@ -19,7 +19,14 @@ public class Main{
         System.out.println(n.potenza);*/
         l = new Lampadina(30);
         System.out.println(l);
-
+        Lampadina m = l; //new Lampadina(l);
+        System.out.println(m);
+        //m.accendi();
+        //System.out.println(l);
+        //System.out.println(m);
+        if (l.equals(m)){
+            System.out.println("Sono uguali");
+        }
 
     }
 }

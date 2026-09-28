@@ -16,6 +16,14 @@ public class Lampadina {
         this.nome = "";
     }
 
+    public Lampadina(Lampadina l) {
+        this.potenza = l.potenza;
+        this.colore = l.colore;
+        this.intensita = l.intensita;
+        this.accesa = l.accesa;
+        this.nome = l.nome;
+    }
+
     public void accendi(){
         this.accesa = true;
 
@@ -26,5 +34,16 @@ public class Lampadina {
         if (this.intensita > 100){
             this.intensita = 100;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Lampadina{" +
+                "potenza=" + potenza +
+                ", colore='" + colore + '\'' +
+                ", intensita=" + intensita +
+                ", accesa=" + accesa +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }
