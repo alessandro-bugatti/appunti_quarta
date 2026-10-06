@@ -30,6 +30,26 @@ public class Dado {
         return this.ultimoLancio;
     }
 
+    public int getFacce() {
+        return facce;
+    }
+
+    public void setFacce(int facce) {
+        this.facce = facce;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //Se non sono della stessa classe sicuramente non sono uguali
+        if (!(obj instanceof Dado)) return false;
+        Dado d = (Dado) obj;
+        if (this.facce == d.facce) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString(){
         return "Dado con " + facce + " facce. Finora sono stati fatti "

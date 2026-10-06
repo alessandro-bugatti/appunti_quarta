@@ -1,5 +1,15 @@
 import java.util.Scanner;
 public class Main{
+
+    public static int lanciaDadi(int quanti, int facce){
+        Dado d = new Dado(facce);
+        int totale = 0;
+        for (int i = 0; i < quanti; i++) {
+            totale += d.lancia();
+        }
+        return totale;
+    }
+
     public static void main(String[] args){
 //        Scanner input = new Scanner(System.in);
 //        Dado d = new Dado();
@@ -33,7 +43,17 @@ public class Main{
         }
         System.out.println("Totale: " + totale);
         System.out.println(d10);
-
+        if (d10.equals(d6)) {
+            System.out.println("I dadi sono uguali");
+        } else {
+            System.out.println("I dadi non sono uguali");
+        }
+        if (!d10.equals("ciao")){
+            System.out.println("Un dado non è uguale a una stringa");
+        }
+        System.out.println(Main.lanciaDadi(3, 6));
     }
+
+
 }
 
