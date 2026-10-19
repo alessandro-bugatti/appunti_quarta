@@ -1,4 +1,5 @@
 import java.util.Random;
+
 public class Dado {
     private int facce;
     private int ultimoLancio = -1;
