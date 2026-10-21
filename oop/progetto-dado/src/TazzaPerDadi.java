@@ -1,24 +1,31 @@
 public class TazzaPerDadi {
     private int nDadi;
-    Dado[] dadi;
+    private Dado[] dadi;
+    private int maxDadi;
 
     public TazzaPerDadi(int N){
         //Indica quanti dadi vogliamo
-        this.nDadi = N;
+        this.nDadi = 0;
+        this.maxDadi = N;
         //Crea il vettore, ma vuoto
-        this.dadi = new Dado[this.nDadi];
-        //Crea gli nDadi richiesti
-        for (int i = 0; i < this.nDadi; i++) {
-            this.dadi[i] = new Dado();
-        }
+        this.dadi = new Dado[this.maxDadi];
     }
 
     public TazzaPerDadi(int N, int F){
         this.nDadi = N;
+        this.maxDadi = N;
         this.dadi = new Dado[this.nDadi];
         for (int i = 0; i < N; i++) {
             this.dadi[i] = new Dado(F);
         }
+    }
+    public boolean add(Dado d){
+        if(this.maxDadi == this.nDadi)  {
+            return false;
+        }
+        this.dadi[this.nDadi] = d;
+        this.nDadi++;
+        return true;
     }
 
     public int lancia(){
@@ -42,11 +49,22 @@ public class TazzaPerDadi {
         }
         return massimo;
     }
+    public int quanti(){
+        return this.nDadi;
+    }
+    public int size(){
+        return maxDadi;
+
+    }
+    public boolean isEmpty(){
+        return this.nDadi == 0;
+    }
 
     @Override
     public String toString(){
         String s;
-        s = "Dadi attualmente contenuti: " + this.nDadi + "\n";
+        s = "Numero massimo dei Dadi: " + this.maxDadi + "\n";
+        s += "Dadi attualmente contenuti: " + this.nDadi + "\n";
         s += "Lista dei dadi: \n";
         for (int i = 0; i < this.nDadi; i++) {
             s += "- dado da " + this.dadi[i].getFacce() + "\n";

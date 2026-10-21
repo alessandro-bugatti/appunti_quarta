@@ -9,6 +9,10 @@ public class TazzaDadiTest {
         System.out.println(tazza2.getMassimo());
         System.out.println(tazza);
         System.out.println(tazza2);
+        tazza.add(new Dado(6));
+        tazza.add(new Dado(8));
+        System.out.println(tazza);
+        System.out.println(tazza.lancia());
     }
 
 
