@@ -21,6 +21,12 @@ public class Main{
         for (int i = 0; i < 10; i++) {
             v[i] = 1;
         }
+        try {
+            Rettangolo r = new Rettangolo(2,2,2,3);
+
+        } catch (LatiNonValidiException e) {
+            System.out.println(e);
+        }
 
     }
 }
