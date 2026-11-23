@@ -29,10 +29,19 @@ public class Lampadina {
 
     }
 
-    public void aumentaLuminosita(){
+    public void aumentaLuminosita() throws LuminositaEccessivaException {
         this.intensita +=10;
         if (this.intensita > 100){
             this.intensita = 100;
+            throw new LuminositaEccessivaException();
+        }
+    }
+
+    public void diminuisciLuminosita() throws LuminositaNegativaException {
+        this.intensita -=10;
+        if (this.intensita < 0){
+            this.intensita = 0;
+            throw new LuminositaNegativaException();
         }
     }
 

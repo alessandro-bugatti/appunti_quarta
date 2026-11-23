@@ -10,7 +10,7 @@ public class Rettangolo {
         if (this.x1 == this.x2){
             //SE volessi lanciare un'eccezione unchecked
             //throw new RuntimeException("La base non può essere zero");
-            throw new LatiNonValidiException();
+            throw new LatiNonValidiException("I valori delle x sono coincidenti e valgono " + this.x1);
         }
 
     }

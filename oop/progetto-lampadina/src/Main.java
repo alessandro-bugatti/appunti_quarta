@@ -1,5 +1,5 @@
 public class Main{
-    public static void main(String[] args){
+    public static void main(String[] args) throws LuminositaEccessivaException, LuminositaNegativaException{
         Lampadina l, n;
         //Esempi di utilizzo per capire la differenza tra riferimento e oggetto
         /*l = new Lampadina();
@@ -27,6 +27,13 @@ public class Main{
         if (l.equals(m)){
             System.out.println("Sono uguali");
         }
-
+        try {
+            m.aumentaLuminosita();
+            m.diminuisciLuminosita();
+        } catch (LuminositaNegativaException e) {
+            throw new RuntimeException(e);
+        } catch (LuminositaEccessivaException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
